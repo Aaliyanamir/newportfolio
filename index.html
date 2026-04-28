@@ -344,6 +344,103 @@
     font-weight: 500;
   }
 
+  /* PROJECTS */
+  #projects { background: var(--surface); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
+    position: relative;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--blue);
+    box-shadow: 0 20px 40px rgba(59,123,255,0.15);
+  }
+  .project-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--blue-glow), var(--cyan));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .project-content {
+    padding: 1.5rem;
+  }
+  .project-title {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--white);
+  }
+  .project-desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .tech-tag {
+    padding: 0.25rem 0.7rem;
+    background: var(--blue-glow);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: var(--cyan);
+    font-weight: 500;
+  }
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+  .project-link {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    color: var(--muted);
+  }
+  .project-link:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+    transform: translateY(-2px);
+  }
+  .project-link.live {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+  }
+  .project-link.live:hover {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    color: var(--bg);
+  }
+
   /* EDUCATION */
   #education { background: var(--bg); }
   .edu-grid { display: flex; flex-direction: column; gap: 1.2rem; }
@@ -504,6 +601,7 @@
   <ul>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#education">Education</a></li>
   </ul>
@@ -669,6 +767,103 @@
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-tag reveal">My Work</div>
+    <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-image">
+          🌐
+        </div>
+        <div class="project-content">
+          <div class="project-title">Business Website</div>
+          <div class="project-desc">
+            A responsive business website with modern design, contact forms, and service showcase. Built with HTML, CSS, and JavaScript.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">PHP</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link live">View Live</a>
+            <a href="#" class="project-link">Source Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="200">
+        <div class="project-image">
+          🛒
+        </div>
+        <div class="project-content">
+          <div class="project-title">E-commerce Layout</div>
+          <div class="project-desc">
+            Complete e-commerce website layout with product catalog, shopping cart functionality, and user authentication system.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link live">View Live</a>
+            <a href="#" class="project-link">Source Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="400">
+        <div class="project-image">
+          🔐
+        </div>
+        <div class="project-content">
+          <div class="project-title">Login System</div>
+          <div class="project-desc">
+            Secure user authentication system with registration, login, password recovery, and session management.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML/CSS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link live">View Live</a>
+            <a href="#" class="project-link">Source Code</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="600">
+        <div class="project-image">
+          📱
+        </div>
+        <div class="project-content">
+          <div class="project-title">Landing Page</div>
+          <div class="project-desc">
+            Modern, responsive landing page with animations, call-to-action sections, and optimized for conversions.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">GSAP</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link live">View Live</a>
+            <a href="#" class="project-link">Source Code</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
