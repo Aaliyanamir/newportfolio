@@ -348,82 +348,131 @@
   #projects { background: var(--surface); }
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 2rem;
   }
   .project-card {
-    background: var(--card);
+    background: linear-gradient(180deg, rgba(15,21,37,0.96), rgba(10,13,23,0.98));
     border: 1px solid var(--border);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    box-shadow: 0 20px 45px rgba(4, 7, 18, 0.28);
   }
   .project-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--blue);
-    box-shadow: 0 20px 40px rgba(59,123,255,0.15);
+    transform: translateY(-10px);
+    border-color: rgba(59, 123, 255, 0.5);
+    box-shadow: 0 28px 50px rgba(59, 123, 255, 0.18);
   }
-  .project-image {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, var(--blue-glow), var(--cyan));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
+  .project-media {
     position: relative;
+    height: 210px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 1.1rem 1.1rem 1.2rem;
     overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(135deg, rgba(59,123,255,0.25), rgba(0,229,255,0.12));
   }
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .project-media::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 40%);
+    pointer-events: none;
+  }
+  .project-media--blue { background: linear-gradient(135deg, #0b1328 0%, #14284d 45%, #3b7bff 100%); }
+  .project-media--cyan { background: linear-gradient(135deg, #071822 0%, #0c2b3a 35%, #00c2ff 100%); }
+  .project-media--purple { background: linear-gradient(135deg, #120f28 0%, #1e2148 35%, #6f67ff 100%); }
+  .project-media--green { background: linear-gradient(135deg, #061d1a 0%, #123c32 35%, #14b8a6 100%); }
+  .project-media--orange { background: linear-gradient(135deg, #1d110d 0%, #3f2317 35%, #ff8a3d 100%); }
+  .project-media--red { background: linear-gradient(135deg, #1d0d18 0%, #3a1234 35%, #ff4d88 100%); }
+  .project-badge {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.38rem 0.7rem;
+    background: rgba(8, 13, 24, 0.42);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--cyan);
+    backdrop-filter: blur(10px);
+  }
+  .project-badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #3bffae;
+    box-shadow: 0 0 12px rgba(59, 255, 174, 0.8);
+  }
+  .project-visual {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-head);
+    font-size: clamp(2rem, 2vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: rgba(255,255,255,0.94);
+    text-shadow: 0 10px 30px rgba(0,0,0,0.25);
   }
   .project-content {
-    padding: 1.5rem;
+    padding: 1.35rem 1.3rem 1.45rem;
   }
   .project-title {
     font-family: var(--font-head);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.55rem;
     color: var(--white);
   }
   .project-desc {
     color: var(--muted);
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 1rem;
+    min-height: 82px;
   }
   .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
   }
   .tech-tag {
-    padding: 0.25rem 0.7rem;
-    background: var(--blue-glow);
-    border: 1px solid var(--border);
+    padding: 0.28rem 0.7rem;
+    background: rgba(59, 123, 255, 0.08);
+    border: 1px solid rgba(59, 123, 255, 0.24);
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--cyan);
     font-weight: 500;
   }
   .project-links {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
+    flex-wrap: wrap;
   }
   .project-link {
-    padding: 0.6rem 1.2rem;
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.2s;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
     color: var(--muted);
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.01);
   }
   .project-link:hover {
     border-color: var(--cyan);
@@ -431,14 +480,15 @@
     transform: translateY(-2px);
   }
   .project-link.live {
-    background: var(--blue);
+    background: linear-gradient(135deg, var(--blue), #5d88ff);
     color: white;
-    border-color: var(--blue);
+    border-color: transparent;
+    box-shadow: 0 12px 26px rgba(59, 123, 255, 0.28);
   }
   .project-link.live:hover {
-    background: var(--cyan);
-    border-color: var(--cyan);
+    background: linear-gradient(135deg, var(--cyan), #58d6ff);
     color: var(--bg);
+    box-shadow: 0 14px 32px rgba(0,229,255,0.24);
   }
 
   /* EDUCATION */
@@ -759,7 +809,49 @@
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="45"></div></div>
       </div>
 
-      <div class="skill-card reveal" data-delay="800">
+      <div class="skill-card reveal" data-delay="760">
+        <div class="skill-icon">🅰️</div>
+        <div class="skill-name">Angular Development</div>
+        <div class="skill-desc">Building interactive single-page applications with Angular</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="820">
+        <div class="skill-icon">⚛️</div>
+        <div class="skill-name">React</div>
+        <div class="skill-desc">Reusable components, UI logic, and modern frontend workflows</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="74"></div></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="880">
+        <div class="skill-icon">▲</div>
+        <div class="skill-name">Next.js</div>
+        <div class="skill-desc">Server-rendered and production-ready React applications</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="940">
+        <div class="skill-icon">🗃️</div>
+        <div class="skill-name">MongoDB</div>
+        <div class="skill-desc">NoSQL database modeling, schema design, and integration</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="68"></div></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="1000">
+        <div class="skill-icon">☁️</div>
+        <div class="skill-name">Azure</div>
+        <div class="skill-desc">Cloud deployment, app hosting, and Azure-based workflows</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="66"></div></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="1060">
+        <div class="skill-icon">🛍️</div>
+        <div class="skill-name">Shopify</div>
+        <div class="skill-desc">Storefront customization, theme logic, and product-focused UX</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="76"></div></div>
+      </div>
+
+      <div class="skill-card reveal" data-delay="1120">
         <div class="skill-icon">💼</div>
         <div class="skill-name">MS Office & Problem Solving</div>
         <div class="skill-desc">Microsoft Office suite and analytical problem-solving skills</div>
@@ -798,89 +890,162 @@
     <h2 class="section-title reveal">Featured <span>Projects</span></h2>
     <div class="projects-grid">
       <div class="project-card reveal">
-        <div class="project-image">
-          🌐
+        <div class="project-media project-media--blue">
+          <span class="project-badge">Live</span>
+          <div class="project-visual">AI</div>
         </div>
         <div class="project-content">
-          <div class="project-title">Business Website</div>
+          <div class="project-title">AIPromptHub</div>
           <div class="project-desc">
-            A responsive business website with modern design, contact forms, and service showcase. Built with HTML, CSS, and JavaScript.
+            A premium AI prompt discovery platform with curated prompt collections, modern UI, and a clean conversion-focused interface.
           </div>
           <div class="project-tech">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">AI</span>
+            <span class="tech-tag">UI/UX</span>
+            <span class="tech-tag">Landing</span>
+            <span class="tech-tag">Web</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link live">View Live</a>
-            <a href="#" class="project-link">Source Code</a>
+            <a href="https://aiprompthub.tech/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
+            <a href="https://aiprompthub.tech/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal" data-delay="200">
-        <div class="project-image">
-          🛒
+        <div class="project-media project-media--cyan">
+          <span class="project-badge">Live</span>
+          <div class="project-visual">TO</div>
         </div>
         <div class="project-content">
-          <div class="project-title">E-commerce Layout</div>
+          <div class="project-title">Tech Olympic 2026</div>
           <div class="project-desc">
-            Complete e-commerce website layout with product catalog, shopping cart functionality, and user authentication system.
+            A futuristic sports and event landing page built to showcase a major global competition with strong branding and motion-rich sections.
           </div>
           <div class="project-tech">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">PHP</span>
-            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">Sports</span>
+            <span class="tech-tag">Branding</span>
+            <span class="tech-tag">Landing</span>
+            <span class="tech-tag">Animations</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link live">View Live</a>
-            <a href="#" class="project-link">Source Code</a>
+            <a href="https://tech-olympic-2026.netlify.app/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
+            <a href="https://tech-olympic-2026.netlify.app/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal" data-delay="400">
-        <div class="project-image">
-          🔐
+        <div class="project-media project-media--purple">
+          <span class="project-badge">Live</span>
+          <div class="project-visual">RS</div>
         </div>
         <div class="project-content">
-          <div class="project-title">Login System</div>
+          <div class="project-title">Rajput Sports</div>
           <div class="project-desc">
-            Secure user authentication system with registration, login, password recovery, and session management.
+            A sporty, high-energy brand website with competitive visuals, event feel, and bold calls to action for sports audiences.
           </div>
           <div class="project-tech">
-            <span class="tech-tag">PHP</span>
-            <span class="tech-tag">MySQL</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">HTML/CSS</span>
+            <span class="tech-tag">Sports</span>
+            <span class="tech-tag">UI</span>
+            <span class="tech-tag">Branding</span>
+            <span class="tech-tag">Responsive</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link live">View Live</a>
-            <a href="#" class="project-link">Source Code</a>
+            <a href="https://rajput-sports.netlify.app/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
+            <a href="https://rajput-sports.netlify.app/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal" data-delay="600">
-        <div class="project-image">
-          📱
+        <div class="project-media project-media--green">
+          <span class="project-badge">Live</span>
+          <div class="project-visual">BB</div>
         </div>
         <div class="project-content">
-          <div class="project-title">Landing Page</div>
+          <div class="project-title">Beauty of Beaches</div>
           <div class="project-desc">
-            Modern, responsive landing page with animations, call-to-action sections, and optimized for conversions.
+            An immersive travel and beach destination website with warm storytelling design and scenic, premium hospitality vibes.
           </div>
           <div class="project-tech">
-            <span class="tech-tag">HTML</span>
-            <span class="tech-tag">CSS</span>
-            <span class="tech-tag">JavaScript</span>
-            <span class="tech-tag">GSAP</span>
+            <span class="tech-tag">Travel</span>
+            <span class="tech-tag">Tourism</span>
+            <span class="tech-tag">UI/UX</span>
+            <span class="tech-tag">Responsive</span>
           </div>
           <div class="project-links">
-            <a href="#" class="project-link live">View Live</a>
-            <a href="#" class="project-link">Source Code</a>
+            <a href="https://beauty-of-beaches-created-by-raza.netlify.app/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
+            <a href="https://beauty-of-beaches-created-by-raza.netlify.app/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="800">
+        <div class="project-media project-media--orange">
+          <span class="project-badge">Live</span>
+          <div class="project-visual">CV</div>
+        </div>
+        <div class="project-content">
+          <div class="project-title">CineVault Hub</div>
+          <div class="project-desc">
+            A cinematic streaming-style web experience themed around media browsing, collections, and premium entertainment presentation.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Media</span>
+            <span class="tech-tag">Streaming</span>
+            <span class="tech-tag">UI</span>
+            <span class="tech-tag">Web</span>
+          </div>
+          <div class="project-links">
+            <a href="https://cinevaulthub.wuaze.com/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
+            <a href="https://cinevaulthub.wuaze.com/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="1000">
+        <div class="project-media project-media--red">
+          <span class="project-badge">Live</span>
+          <div class="project-visual">FA</div>
+        </div>
+        <div class="project-content">
+          <div class="project-title">Free AI New</div>
+          <div class="project-desc">
+            A modern AI-focused landing experience designed to present tools, resources, and smart product positioning in a polished way.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">AI</span>
+            <span class="tech-tag">Tools</span>
+            <span class="tech-tag">Landing</span>
+            <span class="tech-tag">Brand</span>
+          </div>
+          <div class="project-links">
+            <a href="https://freeainew-m275.vercel.app/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
+            <a href="https://freeainew-m275.vercel.app/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="1200">
+        <div class="project-media project-media--blue">
+          <span class="project-badge">WordPress</span>
+          <div class="project-visual">GW</div>
+        </div>
+        <div class="project-content">
+          <div class="project-title">Good For Wellness</div>
+          <div class="project-desc">
+            A wellness-focused WordPress website with a clean, trustworthy brand feel and easy-to-navigate content structure for health audiences.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">WordPress</span>
+            <span class="tech-tag">Wellness</span>
+            <span class="tech-tag">Branding</span>
+            <span class="tech-tag">CMS</span>
+          </div>
+          <div class="project-links">
+            <a href="https://goodforwellness.com/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
+            <a href="https://goodforwellness.com/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
           </div>
         </div>
       </div>
