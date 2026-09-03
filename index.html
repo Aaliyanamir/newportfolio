@@ -347,35 +347,62 @@ bhai skill <!DOCTYPE html>
   /* PROJECTS */
   #projects { background: var(--surface); }
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
+  .projects-grid .project-card:nth-child(13) { order: 1; }
+  .projects-grid .project-card:nth-child(12) { order: 2; }
+  .projects-grid .project-card:nth-child(2) { order: 3; }
+  .projects-grid .project-card:nth-child(5) { order: 4; }
+  .projects-grid .project-card:nth-child(9) { order: 5; }
+  .projects-grid .project-card:nth-child(4) { order: 6; }
+  .projects-grid .project-card:nth-child(3) { order: 7; }
+  .projects-grid .project-card:nth-child(8) { order: 8; }
+  .projects-grid .project-card:nth-child(10) { order: 9; }
+  .projects-grid .project-card:nth-child(11) { order: 10; }
+  .projects-grid .project-card:nth-child(1) { order: 11; }
+  .projects-grid .project-card:nth-child(6) { order: 12; }
+  .projects-grid .project-card:nth-child(7) { order: 13; }
   .project-card {
-    background: linear-gradient(180deg, rgba(15,21,37,0.96), rgba(10,13,23,0.98));
+    display: grid;
+    grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
+    min-height: 330px;
+    background: linear-gradient(110deg, rgba(15,21,37,0.98), rgba(10,13,23,0.98));
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 18px;
     overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     box-shadow: 0 20px 45px rgba(4, 7, 18, 0.28);
   }
+  .project-card:nth-child(even) { grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr); }
+  .project-card:nth-child(even) .project-media { order: 2; }
   .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px) scale(1.005);
     border-color: rgba(59, 123, 255, 0.5);
     box-shadow: 0 28px 50px rgba(59, 123, 255, 0.18);
   }
   .project-media {
     position: relative;
-    height: 210px;
+    min-height: 330px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 1.1rem 1.1rem 1.2rem;
+    padding: 1.2rem;
     overflow: hidden;
     border-bottom: 1px solid var(--border);
     background: linear-gradient(135deg, rgba(59,123,255,0.25), rgba(0,229,255,0.12));
   }
+  .project-media::after {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 1px solid rgba(255,255,255,0.13);
+    pointer-events: none;
+    transition: inset 0.45s ease, border-color 0.3s ease;
+  }
+  .project-card:hover .project-media::after { inset: 18px; border-color: rgba(255,255,255,0.3); }
   .project-media::before {
     content: "";
     position: absolute;
@@ -389,6 +416,45 @@ bhai skill <!DOCTYPE html>
   .project-media--green { background: linear-gradient(135deg, #061d1a 0%, #123c32 35%, #14b8a6 100%); }
   .project-media--orange { background: linear-gradient(135deg, #1d110d 0%, #3f2317 35%, #ff8a3d 100%); }
   .project-media--red { background: linear-gradient(135deg, #1d0d18 0%, #3a1234 35%, #ff4d88 100%); }
+  .project-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.88;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+  }
+  .project-card:hover .project-image { transform: scale(1.08); opacity: 1; }
+  .image-missing {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .image-missing::before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgba(255,255,255,0.25);
+    transform: rotate(45deg);
+    animation: imagePulse 4s ease-in-out infinite;
+  }
+  .image-slot-label {
+    position: relative;
+    z-index: 1;
+    color: rgba(255,255,255,0.78);
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+  .project-media.has-image .image-slot-label { display: none; }
+  @keyframes imagePulse { 0%,100% { transform: rotate(45deg) scale(0.88); opacity: 0.35; } 50% { transform: rotate(45deg) scale(1.08); opacity: 0.8; } }
   .project-badge {
     position: relative;
     z-index: 1;
@@ -424,7 +490,10 @@ bhai skill <!DOCTYPE html>
     text-shadow: 0 10px 30px rgba(0,0,0,0.25);
   }
   .project-content {
-    padding: 1.35rem 1.3rem 1.45rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.4rem 2.6rem;
   }
   .project-title {
     font-family: var(--font-head);
@@ -438,7 +507,7 @@ bhai skill <!DOCTYPE html>
     font-size: 0.9rem;
     line-height: 1.7;
     margin-bottom: 1rem;
-    min-height: 82px;
+    max-width: 520px;
   }
   .project-tech {
     display: flex;
@@ -636,6 +705,11 @@ bhai skill <!DOCTYPE html>
     .hero-visual { display: none; }
     nav ul { display: none; }
     .profile-ring { width: 240px; height: 240px; }
+    .project-card, .project-card:nth-child(even) { display: flex; flex-direction: column; min-height: 0; }
+    .project-card:nth-child(even) .project-media { order: 0; }
+    .project-media { min-height: 240px; height: 240px; }
+    .project-content { padding: 1.6rem 1.35rem 1.7rem; }
+    .project-desc { min-height: 0; }
   }
 </style>
 </head>
@@ -887,6 +961,13 @@ bhai skill <!DOCTYPE html>
         <div class="skill-bar-wrap"><div class="skill-bar" data-width="65"></div></div>
       </div>
 
+      <div class="skill-card reveal" data-delay="1160">
+        <div class="skill-icon">🔌</div>
+        <div class="skill-name">Web API</div>
+        <div class="skill-desc">Building and integrating REST APIs for connected web applications</div>
+        <div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -898,9 +979,33 @@ bhai skill <!DOCTYPE html>
     <h2 class="section-title reveal">Featured <span>Projects</span></h2>
     <div class="projects-grid">
       <div class="project-card reveal">
+        <div class="project-media project-media--orange">
+          <img class="project-image" src="assets/images/multi.png" alt="Multishop shopping store project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/gg.png</span>
+          <span class="project-badge">E-commerce</span>
+        </div>
+        <div class="project-content">
+          <div class="project-title">Multishop</div>
+          <div class="project-desc">
+            A complete shopping store experience with product discovery, category browsing, and a responsive storefront built for everyday online shopping.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">E-commerce</span>
+            <span class="tech-tag">Shopping</span>
+            <span class="tech-tag">Products</span>
+            <span class="tech-tag">Responsive</span>
+          </div>
+          <div class="project-links">
+            <a href="#contact" class="project-link live">Discuss Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
         <div class="project-media project-media--blue">
+          <img class="project-image" src="assets/images/ai.png" alt="AIPromptHub project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/project-aiprompthub.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">AI</div>
         </div>
         <div class="project-content">
           <div class="project-title">AIPromptHub</div>
@@ -922,8 +1027,9 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="200">
         <div class="project-media project-media--cyan">
+          <img class="project-image" src="assets/images/e.png" alt="Tech Olympic 2026 project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/project-tech-olympic-2026.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">TO</div>
         </div>
         <div class="project-content">
           <div class="project-title">Tech Olympic 2026</div>
@@ -945,8 +1051,9 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="400">
         <div class="project-media project-media--purple">
+          <img class="project-image" src="assets/images/rs.png" alt="Rajput Sports project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/rs.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">RS</div>
         </div>
         <div class="project-content">
           <div class="project-title">Rajput Sports</div>
@@ -968,8 +1075,9 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="600">
         <div class="project-media project-media--green">
+          <img class="project-image" src="assets/images/bb.png" alt="Beauty of Beaches project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/project-beauty-of-beaches.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">BB</div>
         </div>
         <div class="project-content">
           <div class="project-title">Beauty of Beaches</div>
@@ -991,11 +1099,12 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="800">
         <div class="project-media project-media--orange">
+          <img class="project-image" src="assets/images/cine.png" alt="CineVault movie website project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/cine.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">CV</div>
         </div>
         <div class="project-content">
-          <div class="project-title">CineVault Hub</div>
+          <div class="project-title">CineVault</div>
           <div class="project-desc">
             A cinematic streaming-style web experience themed around media browsing, collections, and premium entertainment presentation.
           </div>
@@ -1013,9 +1122,33 @@ bhai skill <!DOCTYPE html>
       </div>
 
       <div class="project-card reveal" data-delay="1000">
+        <div class="project-media project-media--cyan">
+          <img class="project-image" src="assets/images/mento.png" alt="Mentoraa skill swapping learning website project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/mento.png</span>
+          <span class="project-badge">Skill Exchange</span>
+        </div>
+        <div class="project-content">
+          <div class="project-title">Mentoraa</div>
+          <div class="project-desc">
+            A skill-swapping learning platform that connects people to teach what they know, learn new skills, and grow through community collaboration.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Learning</span>
+            <span class="tech-tag">Community</span>
+            <span class="tech-tag">Skill Swap</span>
+            <span class="tech-tag">UI/UX</span>
+          </div>
+          <div class="project-links">
+            <a href="#contact" class="project-link live">Discuss Project</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="1000">
         <div class="project-media project-media--red">
+          <img class="project-image" src="assets/images/ff.png" alt="Free AI New project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/project-free-ai-new.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">FA</div>
         </div>
         <div class="project-content">
           <div class="project-title">Free AI New</div>
@@ -1037,8 +1170,9 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="1200">
         <div class="project-media project-media--blue">
+          <img class="project-image" src="assets/images/gfw.png" alt="Good For Wellness project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/project-good-for-wellness.png</span>
           <span class="project-badge">WordPress</span>
-          <div class="project-visual">GW</div>
         </div>
         <div class="project-content">
           <div class="project-title">Good For Wellness</div>
@@ -1060,8 +1194,9 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="1400">
         <div class="project-media project-media--orange">
+          <img class="project-image" src="assets/images/gg.png" alt="Gracious Garments project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/gg.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">GG</div>
         </div>
         <div class="project-content">
           <div class="project-title">Gracious Garments</div>
@@ -1083,8 +1218,9 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="1600">
         <div class="project-media project-media--cyan">
+          <img class="project-image" src="assets/images/pp.png" alt="Aaliyan Amir Portfolio project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/project-aaliyan-portfolio.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">AA</div>
         </div>
         <div class="project-content">
           <div class="project-title">Aaliyan Amir Portfolio</div>
@@ -1106,8 +1242,9 @@ bhai skill <!DOCTYPE html>
 
       <div class="project-card reveal" data-delay="1800">
         <div class="project-media project-media--purple">
+          <img class="project-image" src="assets/images/at.png" alt="Aurelia Atelier project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/project-aurelia-atelier.png</span>
           <span class="project-badge">Live</span>
-          <div class="project-visual">AA</div>
         </div>
         <div class="project-content">
           <div class="project-title">Aurelia Atelier</div>
@@ -1123,6 +1260,29 @@ bhai skill <!DOCTYPE html>
           <div class="project-links">
             <a href="https://aurelia-atelia.vercel.app/" class="project-link live" target="_blank" rel="noreferrer">View Live</a>
             <a href="https://aurelia-atelia.vercel.app/" class="project-link" target="_blank" rel="noreferrer">Open Site</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-delay="2000">
+        <div class="project-media project-media--green">
+          <img class="project-image" src="assets/images/pet.png" alt="Pet Care website project preview" onerror="this.style.display='none'; this.parentElement.classList.add('image-missing')">
+          <span class="image-slot-label">Add image here:<br>assets/images/pet-care.png</span>
+          <span class="project-badge">Pet Care</span>
+        </div>
+        <div class="project-content">
+          <div class="project-title">Pet Care Website</div>
+          <div class="project-desc">
+            A warm and trustworthy pet care website designed to help pet parents explore services, discover useful care resources, and book support for their beloved companions.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Pet Care</span>
+            <span class="tech-tag">Services</span>
+            <span class="tech-tag">UI/UX</span>
+            <span class="tech-tag">Responsive</span>
+          </div>
+          <div class="project-links">
+            <a href="https://frontend-nine-indol-48.vercel.app/" class="project-link live" target="_blank">View Live</a>
           </div>
         </div>
       </div>
@@ -1289,12 +1449,13 @@ bhai skill <!DOCTYPE html>
       <div class="cv-item"><div class="cv-item-title">Tech Olympic 2026</div></div>
       <div class="cv-item"><div class="cv-item-title">Rajput Sports</div></div>
       <div class="cv-item"><div class="cv-item-title">Beauty of Beaches</div></div>
-      <div class="cv-item"><div class="cv-item-title">CineVault Hub</div></div>
+      <div class="cv-item"><div class="cv-item-title">CineVault</div></div>
       <div class="cv-item"><div class="cv-item-title">Free AI New</div></div>
       <div class="cv-item"><div class="cv-item-title">Good For Wellness</div></div>
       <div class="cv-item"><div class="cv-item-title">Gracious Garments</div></div>
       <div class="cv-item"><div class="cv-item-title">Aaliyan Amir Portfolio</div></div>
       <div class="cv-item"><div class="cv-item-title">Aurelia Atelier</div></div>
+      <div class="cv-item"><div class="cv-item-title">Pet Care Website</div></div>
     </div>
 
     <div class="cv-section">
@@ -1330,6 +1491,13 @@ bhai skill <!DOCTYPE html>
   window.addEventListener('scroll', () => {
     const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
     document.getElementById('scrollBar').style.transform = `scaleX(${pct})`;
+  });
+
+  // PROJECT IMAGE SLOTS
+  document.querySelectorAll('.project-image').forEach(image => {
+    const markLoaded = () => image.parentElement.classList.add('has-image');
+    image.addEventListener('load', markLoaded);
+    if (image.complete && image.naturalWidth > 0) markLoaded();
   });
 
   // SCROLL REVEAL
