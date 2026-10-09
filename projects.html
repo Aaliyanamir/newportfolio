@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore all web development projects by Aaliyan Amir, including full-stack apps, e-commerce sites, and business websites.">
+  <title>All Projects — Aaliyan Amir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; --bg: #08080a; --surface: #101015; --white: #fff; --muted: #a1a1aa; --line: rgba(255,255,255,.1); --sans: 'Outfit', sans-serif; --head: 'Syne', sans-serif; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--white); font-family: var(--sans); line-height: 1.6; }
+    a { color: inherit; }
+    .topbar { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .9rem max(1.25rem, calc((100vw - 1180px)/2)); border-bottom: 1px solid var(--line); background: rgba(8,8,10,.88); backdrop-filter: blur(16px); }
+    .logo { font-family: var(--head); font-size: 1.1rem; font-weight: 800; text-decoration: none; }
+    .top-link { color: #d4d4d8; font-size: .88rem; font-weight: 600; text-decoration: none; }
+    .top-link:hover { color: white; }
+    main { width: min(1180px, calc(100% - 2.5rem)); margin: 0 auto; padding: 5rem 0 6rem; }
+    .eyebrow { color: #a1a1aa; font-family: 'Space Grotesk', monospace; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: .45rem 0 .6rem; font-family: var(--head); font-size: clamp(2.5rem, 7vw, 4.7rem); line-height: 1.04; letter-spacing: -.045em; }
+    .intro { max-width: 620px; margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 2.4rem 0 1.4rem; }
+    #projectSearch { width: min(100%, 360px); min-height: 46px; padding: .7rem 1rem; border: 1px solid var(--line); border-radius: 12px; outline: none; background: #111116; color: white; font: inherit; }
+    #projectSearch:focus { border-color: rgba(255,255,255,.55); }
+    #projectCount { color: var(--muted); font-size: .88rem; white-space: nowrap; }
+    #projectStatus { margin: 1rem 0; color: #d4d4d8; }
+    #projectStatus.error { padding: 1rem; border: 1px solid rgba(248,113,113,.45); border-radius: 12px; color: #fecaca; }
+    #projectStatus[hidden] { display: none; }
+    .projects-grid { display: flex; flex-direction: column; gap: 1.4rem; }
+    .marketlink-project { order: -9; }
+    .fan-hub-project { order: -8; }
+    .pet-care-project { order: -7; }
+    .aurelia-atelier-project { order: -6; }
+    .ai-prompthub-project { order: -5; }
+    .beauty-of-beaches-project { order: -4; }
+    .good-for-wellness-project { order: -3; }
+    .pawcare-project { order: -2; }
+    .burger-shop-project { order: -1; }
+    .project-card { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(0, 1.1fr); min-height: 280px; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
+    .project-card:nth-child(even) { grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); }
+    .project-card:nth-child(even) .project-media { order: 2; }
+    .project-media { position: relative; min-height: 280px; overflow: hidden; background: #17171e; }
+    .project-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .9; transition: transform .45s ease; }
+    .project-card:hover .project-image { transform: scale(1.035); }
+    .fan-hub-project .project-media { background: radial-gradient(ellipse at center, rgba(163,216,29,.12), #08090a 70%); }
+    .fan-hub-project .project-image { object-fit: contain; padding: 2rem; }
+    .project-badge { position: absolute; left: 1rem; bottom: 1rem; padding: .35rem .75rem; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(8,8,10,.8); font-size: .73rem; font-weight: 700; }
+    .project-content { min-width: 0; padding: clamp(1.35rem, 4vw, 2.5rem); }
+    .project-title { margin-bottom: .65rem; font-family: var(--head); font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; line-height: 1.2; }
+    .project-desc { max-width: 650px; margin: 0 0 1.1rem; color: var(--muted); font-size: .94rem; line-height: 1.7; }
+    .project-details { display: grid; gap: .55rem; margin: 0 0 1.1rem; }
+    .project-details div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); gap: .6rem; font-size: .82rem; line-height: 1.5; }
+    .project-details dt { font-weight: 700; }
+    .project-details dd { margin: 0; color: var(--muted); }
+    .project-tech { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0 0 1.25rem; }
+    .tech-tag { padding: .3rem .7rem; border: 1px solid var(--line); border-radius: 999px; color: #d4d4d8; font-size: .75rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: .65rem; }
+    .project-link { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: .6rem .95rem; border: 1px solid var(--line); border-radius: 10px; color: #e4e4e7; font-size: .84rem; font-weight: 700; text-decoration: none; }
+    .project-link.live { border-color: white; background: white; color: #111; }
+    .project-link:hover { border-color: white; }
+    .whatsapp-fab { position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 10; width: 60px; height: 60px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.28); border-radius: 50%; background: linear-gradient(145deg, #25d366, #128c4a); color: #fff; box-shadow: 0 8px 28px rgba(18,140,74,.38), inset 0 1px 0 rgba(255,255,255,.28); text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+    .whatsapp-fab::before { position: absolute; inset: -5px; border: 1px solid rgba(37,211,102,.45); border-radius: inherit; content: ""; animation: whatsapp-pulse 2.4s ease-out infinite; pointer-events: none; }
+    .whatsapp-fab:hover { transform: translateY(-3px); box-shadow: 0 12px 34px rgba(18,140,74,.5), inset 0 1px 0 rgba(255,255,255,.28); }
+    .whatsapp-fab:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+    .whatsapp-fab svg { width: 29px; height: 29px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+    .whatsapp-fab-label { position: absolute; right: calc(100% + .8rem); padding: .5rem .8rem; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; background: #15151a; color: #fff; font-size: .8rem; font-weight: 600; white-space: nowrap; opacity: 0; transform: translateX(.35rem); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+    .whatsapp-fab:hover .whatsapp-fab-label, .whatsapp-fab:focus-visible .whatsapp-fab-label { opacity: 1; transform: translateX(0); }
+    @keyframes whatsapp-pulse { 0% { transform: scale(.92); opacity: .7; } 75%, 100% { transform: scale(1.2); opacity: 0; } }
+    footer { padding: 1.5rem 1.25rem; border-top: 1px solid var(--line); color: var(--muted); text-align: center; font-size: .84rem; }
+    footer a { margin-left: .6rem; color: white; text-decoration: none; }
+    @media (max-width: 760px) {
+      main { padding-top: 3.5rem; }
+      .toolbar { align-items: stretch; flex-direction: column; }
+      #projectSearch { width: 100%; }
+      .project-card, .project-card:nth-child(even) { grid-template-columns: 1fr; }
+      .project-card:nth-child(even) .project-media { order: 0; }
+      .project-media { min-height: 0; aspect-ratio: 16/9; }
+    }
+    @media (max-width: 480px) {
+      main { width: min(100% - 1.5rem, 1180px); padding-top: 2.8rem; }
+      .project-content { padding: 1.2rem; }
+      .project-details div { grid-template-columns: 1fr; gap: .1rem; }
+      .topbar { padding-inline: .9rem; }
+      .whatsapp-fab { right: 1rem; bottom: 1rem; width: 54px; height: 54px; }
+      .whatsapp-fab svg { width: 26px; height: 26px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="index.html">Aaliyan Amir<span aria-hidden="true">.</span></a>
+    <a class="top-link" href="index.html#projects">← Featured projects</a>
+  </header>
+  <main>
+    <div class="eyebrow">// Selected work</div>
+    <h1>All Projects</h1>
+    <p class="intro">A collection of web applications, storefronts, and digital experiences I have built.</p>
+    <div class="toolbar">
+      <input id="projectSearch" type="search" placeholder="Search projects..." aria-label="Search projects" disabled>
+      <span id="projectCount" aria-live="polite">Loading projects…</span>
+    </div>
+    <p id="projectStatus" role="status">Loading project list…</p>
+    <div class="projects-grid" id="allProjects" aria-live="polite"></div>
+  </main>
+  <footer>© <span id="footerYear"></span> Aaliyan Amir <a href="mailto:aliyanamir911@gmail.com">Get in touch</a><a href="https://wa.me/923702356902" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://www.fiverr.com/sellers/aaliyanamir921" target="_blank" rel="noopener noreferrer">Fiverr</a><a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Aevora Studio</a></footer>
+  <a class="whatsapp-fab" href="https://wa.me/923702356902" target="_blank" rel="noopener noreferrer" aria-label="Chat with Aaliyan on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L4 20l1.2-4A8.2 8.2 0 1 1 20.2 11.7Z"></path>
+      <path d="M8.5 8.3c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .7.6 1 1.4 1.7 2.4 2.2.3.2.5.2.7-.1l.7-.8c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.2-.7 1.6-.5.5-1.2.7-2 .5-1.1-.2-2.5-.8-4-2.2-1.2-1.1-2.1-2.5-2.4-3.6-.3-1 .1-1.8.7-2.2Z"></path>
+    </svg>
+    <span class="whatsapp-fab-label">Chat on WhatsApp</span>
+  </a>
+  <script>
+    const projectGrid = document.getElementById('allProjects');
+    const projectStatus = document.getElementById('projectStatus');
+    const projectSearch = document.getElementById('projectSearch');
+    const projectCount = document.getElementById('projectCount');
+
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    async function loadProjects() {
+      projectStatus.hidden = false;
+      projectStatus.classList.remove('error');
+      projectStatus.textContent = 'Loading project list…';
+
+      try {
+        const response = await fetch('index.html');
+        if (!response.ok) throw new Error(`Project source returned HTTP ${response.status}`);
+
+        const source = new DOMParser().parseFromString(await response.text(), 'text/html');
+        const cards = [...source.querySelectorAll('#projects .projects-grid > .project-card')];
+        if (cards.length === 0) throw new Error('No project cards were found in the portfolio source.');
+
+        cards.forEach(card => {
+          card.classList.remove('reveal', 'visible', 'featured-project');
+          card.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.rel = 'noopener noreferrer';
+          });
+          card.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.href = `index.html${link.getAttribute('href')}`;
+          });
+          projectGrid.append(card);
+        });
+
+        projectStatus.hidden = true;
+        projectSearch.disabled = false;
+        updateProjectCount();
+      } catch (error) {
+        projectStatus.classList.add('error');
+        projectStatus.textContent = `Projects could not be loaded. ${error.message} Please refresh the page or return to the portfolio home page.`;
+        projectCount.textContent = 'Project list unavailable';
+      }
+    }
+
+    function updateProjectCount() {
+      const cards = [...projectGrid.children];
+      const query = projectSearch.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach(card => {
+        const matches = card.textContent.toLowerCase().includes(query);
+        card.hidden = !matches;
+        if (matches) visible++;
+      });
+      projectCount.textContent = `${visible} of ${cards.length} projects`;
+    }
+
+    projectSearch.addEventListener('input', updateProjectCount);
+    loadProjects();
+  </script>
+</body>
+</html>

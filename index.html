@@ -139,6 +139,7 @@
     border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
   }
+  .nav-btn-hire { background: var(--white); color: #000; border: 1px solid var(--white); }
 
   /* HERO SECTION */
   #hero {
@@ -210,14 +211,39 @@
   }
   .hero-title-main {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-size: clamp(2.55rem, 4.1vw, 4.5rem);
     font-weight: 900;
     line-height: 1.02;
-    text-transform: uppercase;
     color: #ff5426;
     margin: 0.35rem 0 0;
     text-shadow: 0 4px 30px rgba(0,0,0,0.5);
   }
+  .hero-title-main span { color: var(--white); }
+  .hero-summary { max-width: 460px; margin-top: 1.1rem; color: rgba(255,255,255,.82); font-size: clamp(.98rem, 1.2vw, 1.12rem); line-height: 1.7; text-shadow: 0 3px 18px rgba(0,0,0,.65); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.5rem; }
+  .hero-cta { min-height: 46px; padding: .75rem 1.1rem; display: inline-flex; align-items: center; justify-content: center; gap: .55rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.65); color: var(--white); background: rgba(255,255,255,.08); text-decoration: none; font-size: .88rem; font-weight: 700; transition: transform .2s ease, background .2s ease; }
+  .hero-cta:hover { transform: translateY(-2px); background: rgba(255,255,255,.16); }
+  .hero-cta-primary { background: var(--white); color: #101014; border-color: var(--white); }
+  .hero-cta-primary:hover { background: #e4e4e7; }
+  .hero-social-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.2rem; }
+  .hero-social-links a { color: rgba(255,255,255,.82); text-decoration: none; font-size: .84rem; font-weight: 600; }
+  .hero-social-links a:hover { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+  .whatsapp-fab {
+    position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 900;
+    width: 60px; height: 60px; display: grid; place-items: center;
+    border: 1px solid rgba(255,255,255,.28); border-radius: 50%;
+    background: linear-gradient(145deg, #25d366, #128c4a); color: #fff;
+    box-shadow: 0 8px 28px rgba(18,140,74,.38), inset 0 1px 0 rgba(255,255,255,.28);
+    text-decoration: none; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .whatsapp-fab::before { position: absolute; inset: -5px; border: 1px solid rgba(37,211,102,.45); border-radius: inherit; content: ""; animation: whatsapp-pulse 2.4s ease-out infinite; pointer-events: none; }
+  .whatsapp-fab:hover { transform: translateY(-3px); box-shadow: 0 12px 34px rgba(18,140,74,.5), inset 0 1px 0 rgba(255,255,255,.28); }
+  .whatsapp-fab:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+  .whatsapp-fab svg { width: 29px; height: 29px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.8; }
+  .whatsapp-fab-label { position: absolute; right: calc(100% + .8rem); padding: .5rem .8rem; border: 1px solid rgba(255,255,255,.12); border-radius: 10px; background: #15151a; color: #fff; font-size: .8rem; font-weight: 600; white-space: nowrap; opacity: 0; transform: translateX(.35rem); transition: opacity .2s ease, transform .2s ease; pointer-events: none; }
+  .whatsapp-fab:hover .whatsapp-fab-label, .whatsapp-fab:focus-visible .whatsapp-fab-label { opacity: 1; transform: translateX(0); }
+  @keyframes whatsapp-pulse { 0% { transform: scale(.92); opacity: .7; } 75%, 100% { transform: scale(1.2); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .whatsapp-fab::before { animation: none; } }
 
   /* RIGHT OVERLAY TEXT & BUTTONS */
   .hero-right {
@@ -331,6 +357,8 @@
   .about-desc-paragraph {
     color: var(--muted); font-size: 1.05rem; line-height: 1.85; margin-bottom: 2.5rem;
   }
+  .about-desc-paragraph a { color: var(--white); text-decoration-color: rgba(255,255,255,.45); text-underline-offset: 3px; }
+  .about-desc-paragraph a:hover { text-decoration-color: var(--white); }
   .about-stat-cards {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
   }
@@ -444,6 +472,10 @@
     color: var(--muted); font-size: 0.98rem; line-height: 1.78;
     margin-bottom: 1.4rem; max-width: 540px;
   }
+  .project-details { display: grid; gap: .7rem; margin: 0 0 1.3rem; }
+  .project-details div { display: grid; grid-template-columns: 7.3rem minmax(0, 1fr); gap: .7rem; font-size: .86rem; line-height: 1.55; }
+  .project-details dt { color: var(--white); font-weight: 700; }
+  .project-details dd { margin: 0; color: var(--muted); }
   .project-tech { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.6rem; }
   .tech-tag {
     padding: 0.35rem 0.85rem; background: rgba(255, 255, 255, 0.05);
@@ -477,8 +509,15 @@
     font-family: var(--font-head); font-size: 1.6rem; font-weight: 800;
     color: var(--white); margin-bottom: 0.3rem;
   }
+  .exp-company a { color: inherit; text-decoration-color: rgba(255,255,255,.45); text-underline-offset: 4px; }
+  .exp-company a:hover { text-decoration-color: var(--white); }
   .exp-role { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem; }
   .exp-text { color: var(--muted); line-height: 1.85; font-size: 1rem; }
+  .exp-text a { color: var(--white); text-decoration-color: rgba(255,255,255,.45); text-underline-offset: 3px; }
+  .exp-text a:hover { text-decoration-color: var(--white); }
+  .exp-links { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.3rem; }
+  .exp-links a { min-height: 42px; display: inline-flex; align-items: center; gap: .5rem; padding: .6rem .95rem; border: 1px solid rgba(255,255,255,.18); border-radius: 999px; color: var(--white); background: rgba(255,255,255,.05); font-size: .84rem; font-weight: 700; text-decoration: none; transition: background .2s ease, border-color .2s ease, transform .2s ease; }
+  .exp-links a:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.12); transform: translateY(-2px); }
   .exp-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; }
   .exp-tag {
     padding: 0.35rem 0.9rem; background: rgba(255, 255, 255, 0.05);
@@ -608,6 +647,64 @@
   }
   .cv-download:hover { background: #e4e4e7; transform: translateY(-2px); }
 
+  /* PRINT-READY CV */
+  .cv-modal-overlay {
+    overflow-y: auto; align-items: flex-start; padding: 2.5vh 1rem;
+    visibility: hidden;
+  }
+  .cv-modal-overlay.active { visibility: visible; }
+  .cv-modal {
+    width: min(900px, 100%); max-width: 900px; max-height: none; overflow: visible;
+    padding: 0; border: 0; border-radius: 18px; background: #f4f6fa;
+    color: #172033; box-shadow: 0 30px 100px rgba(0,0,0,.65);
+  }
+  .cv-sheet { padding: 2.6rem 3rem; }
+  .cv-resume-header { padding-bottom: 1.35rem; border-bottom: 2px solid #dbe2ed; }
+  .cv-resume-header h2 { margin: 0; color: #13213c; font-family: var(--font-head); font-size: 2.35rem; line-height: 1.05; }
+  .cv-resume-role { margin-top: .35rem; color: #45546c; font-size: 1rem; font-weight: 700; }
+  .cv-resume-contact { display: flex; flex-wrap: wrap; gap: .45rem 1rem; margin-top: .95rem; color: #46546a; font-size: .78rem; }
+  .cv-resume-contact a { color: #2455a4; text-decoration: none; }
+  .cv-resume-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(205px, .9fr); gap: 2rem; padding-top: 1.35rem; }
+  .cv-section { margin-bottom: 1.3rem; }
+  .cv-section h3 { margin-bottom: .62rem; padding: 0; border: 0; color: #1d4d91; font-family: var(--font-code); font-size: .75rem; letter-spacing: 1.35px; }
+  .cv-item { margin-bottom: .75rem; }
+  .cv-item-title { color: #19263c; font-size: .9rem; font-weight: 800; }
+  .cv-item-sub { color: #506078; font-size: .78rem; line-height: 1.55; }
+  .cv-summary { color: #42516a; font-size: .84rem; line-height: 1.65; }
+  .cv-bullets { margin: .35rem 0 0 1rem; padding: 0; color: #4b5a71; font-size: .77rem; line-height: 1.55; }
+  .cv-bullets li { margin-bottom: .2rem; }
+  .cv-project-list { display: grid; gap: .48rem; }
+  .cv-project-entry { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; color: #24334c; font-size: .78rem; font-weight: 700; }
+  .cv-project-entry a { color: #2455a4; font-size: .72rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .cv-skills-list { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .cv-skill-pill { padding: .28rem .55rem; border: 1px solid #d9e1ec; border-radius: 6px; background: #fff; color: #32435c; font-size: .72rem; }
+  .cv-strengths { margin: 0; padding-left: 1rem; color: #4b5a71; font-size: .78rem; line-height: 1.7; }
+  .cv-actions { display: flex; gap: .7rem; padding: 0 3rem 2rem; }
+  .cv-actions .cv-download { margin: 0; }
+  .cv-actions .cv-secondary { background: #e5e9f0; color: #25334a; }
+  .cv-close { z-index: 2; top: 1rem; right: 1rem; color: #33415a; background: #fff; border-color: #dce3ed; cursor: pointer; }
+  .cv-close:hover { border-color: #2455a4; color: #2455a4; }
+
+  .featured-project { display: grid !important; }
+  .projects-grid .project-card:not(.featured-project) { display: none; }
+  .projects-more { display: flex; justify-content: center; margin-top: 2.4rem; }
+  .projects-more a { min-height: 48px; padding: .8rem 1.35rem; display: inline-flex; align-items: center; justify-content: center; gap: .65rem; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; background: rgba(255,255,255,.06); color: var(--white); font-size: .9rem; font-weight: 700; text-decoration: none; transition: background .2s ease, transform .2s ease; }
+  .projects-more a:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); }
+
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    html, body { width: auto !important; height: auto !important; overflow: visible !important; background: #fff !important; color: #172033 !important; cursor: auto !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    body > *:not(#cvModal) { display: none !important; }
+    #cvModal, #cvModal.active { position: static !important; display: block !important; visibility: visible !important; overflow: visible !important; padding: 0 !important; opacity: 1 !important; background: #fff !important; backdrop-filter: none !important; }
+    #cvModal .cv-modal { width: 100% !important; max-width: none !important; max-height: none !important; overflow: visible !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; background: #fff !important; color: #172033 !important; transform: none !important; }
+    #cvModal .cv-sheet { padding: 0 !important; }
+    #cvModal .cv-close, #cvModal .cv-actions { display: none !important; }
+    #cvModal .cv-resume-grid { grid-template-columns: minmax(0, 1.65fr) minmax(190px, .9fr) !important; gap: 1.2rem !important; }
+    #cvModal .cv-section, #cvModal .cv-item { break-inside: avoid; }
+    #cvModal a { color: #2455a4 !important; }
+    .whatsapp-fab { display: none !important; }
+  }
+
   /* REVELATIONS */
   .reveal {
     opacity: 0; transform: translateY(45px);
@@ -644,13 +741,17 @@
     footer { padding: 5rem 2rem 2.5rem; }
   }
   @media(max-width: 600px) {
-    #hero { min-height: 520px; height: 88svh; }
-    .hero-overlay-grid { padding: 5.5rem 1.25rem 2rem; }
-    .hero-left { max-width: 66%; }
-    .hero-title-main { font-size: clamp(1.1rem, 4.2vw, 1.55rem); }
-    .hero-photo-container { left: 50%; right: auto; top: 50%; bottom: auto; transform: translate(-50%, -50%); width: 56%; height: 76%; }
-    .hero-photo { object-position: center; }
-    .hero-spotlight { left: 72%; width: 70vw; height: 65vh; }
+    #hero { min-height: 680px; height: 92svh; }
+    .hero-overlay-grid { padding: 6rem 1.25rem 2rem; align-items: flex-start; }
+    .hero-left { max-width: 100%; width: 100%; padding-top: 1.5rem; }
+    .hero-title-main { max-width: 560px; font-size: clamp(2.55rem, 11vw, 4rem); }
+    .hero-summary { max-width: 82%; font-size: .98rem; }
+    .hero-photo-container { right: -18%; left: auto; top: auto; bottom: 0; transform: none; width: 88%; height: 66%; opacity: .68; }
+    .hero-photo { object-position: bottom right; }
+    .hero-spotlight { left: 72%; top: 65%; width: 70vw; height: 65vh; }
+    .hero-social-links { gap: .8rem; }
+    .whatsapp-fab { right: 1rem; bottom: 1rem; width: 54px; height: 54px; }
+    .whatsapp-fab svg { width: 26px; height: 26px; }
     body { cursor: auto; }
     .cursor-dot, .cursor-ring { display: none; }
     nav { padding: 0.8rem 1rem; gap: 0.5rem; }
@@ -701,10 +802,15 @@
     .footer-bottom-row { font-size: 0.76rem; overflow-wrap: anywhere; }
     .footer-bottom-row > div:last-child { display: flex; flex-direction: column; gap: 0.8rem; }
     .footer-email-link { margin-right: 0; overflow-wrap: anywhere; }
-    .cv-modal { padding: 2rem 1.25rem; border-radius: 18px; }
-    .cv-modal h2 { padding-right: 2.5rem; font-size: 1.6rem; }
     .cv-close { cursor: pointer; }
     .cv-download { cursor: pointer; }
+    .cv-modal-overlay { padding: .5rem; }
+    .cv-sheet { padding: 2rem 1.2rem 1rem; }
+    .cv-resume-header h2 { padding-right: 2.2rem; font-size: 1.8rem; }
+    .cv-resume-grid { grid-template-columns: 1fr; gap: 0; }
+    .cv-actions { padding: 0 1.2rem 1.2rem; }
+    .cv-actions .cv-download { padding: .8rem .4rem; font-size: .82rem; }
+    .project-details div { grid-template-columns: 1fr; gap: .1rem; }
   }
 </style>
 </head>
@@ -728,7 +834,7 @@
     <li><a href="#education">Education</a></li>
   </ul>
   <div class="nav-btns">
-    <button class="nav-btn nav-btn-primary" onclick="openCV()">Hire Me</button>
+    <a class="nav-btn nav-btn-hire" href="mailto:aliyanamir911@gmail.com?subject=Portfolio%20inquiry">Hire Me</a>
     <button class="nav-btn nav-btn-secondary" onclick="openCV()">View CV</button>
   </div>
 </nav>
@@ -749,8 +855,21 @@
   <div class="hero-overlay-grid">
     <div class="hero-left">
       <div class="hero-subtag">HI, I'M AALIYAN AMIR</div>
-      <div class="hero-subtag">WELCOME TO MY</div>
-      <h1 class="hero-title-main">PORTFOLIO</h1>
+      <h1 class="hero-title-main">I build<br><span>full-stack apps</span></h1>
+      <p class="hero-summary">React, Node.js and Laravel applications built for real people and real-world needs. Based in Karachi, Pakistan.</p>
+      <div class="hero-actions">
+        <a class="hero-cta hero-cta-primary" href="#projects">View Projects <span aria-hidden="true">→</span></a>
+        <button class="hero-cta" type="button" onclick="downloadCV()">Download CV <span aria-hidden="true">↓</span></button>
+        <a class="hero-cta" href="mailto:aliyanamir911@gmail.com?subject=Portfolio%20inquiry">Contact Me</a>
+      </div>
+      <div class="hero-social-links" aria-label="Professional profiles">
+        <a href="https://github.com/Aaliyanamir" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/aaliyan-aamir-692a343a4" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a href="mailto:aliyanamir911@gmail.com">Email ↗</a>
+        <a href="https://wa.me/923702356902" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+        <a href="https://www.fiverr.com/sellers/aaliyanamir921" target="_blank" rel="noopener noreferrer">Fiverr ↗</a>
+        <a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Aevora Studio ↗</a>
+      </div>
     </div>
 
   </div>
@@ -780,7 +899,7 @@
         <div class="about-code-tag">// WHO I AM & ABOUT</div>
         <h2 class="about-heading">Hello, I'm<br>Aaliyan Amir</h2>
         <p class="about-desc-paragraph">
-          A passionate Full-Stack and MERN Stack Developer based in Karachi dedicated to crafting clean, functional, and highly scalable web applications. Completed one year of professional web development training at Aptech North Karachi and currently pursuing a 3-Year ACCPI Diploma of Software Engineering.
+          A passionate Full-Stack and MERN Stack Developer based in Karachi dedicated to crafting clean, functional, and highly scalable web applications. I currently freelance and am the founder of <a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Aevora Studio</a>. Completed one year of professional web development training at Aptech North Karachi and currently pursuing a 3-Year ACCPI Diploma of Software Engineering.
         </p>
 
         <div class="about-stat-cards">
@@ -1022,7 +1141,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal ai-prompthub-project">
+      <div class="project-card reveal ai-prompthub-project featured-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/ai.png" alt="AIPromptHub preview">
           <span class="project-badge">Live</span>
@@ -1032,6 +1151,10 @@
           <div class="project-desc">
             A premium AI prompt discovery platform with curated prompt collections, modern UI, and a clean conversion-focused interface.
           </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>Product UI and web experience development</dd></div>
+            <div><dt>Highlights</dt><dd>Curated prompt discovery, clear content browsing, responsive landing experience</dd></div>
+          </dl>
           <div class="project-tech">
             <span class="tech-tag">AI</span>
             <span class="tech-tag">UI/UX</span>
@@ -1088,7 +1211,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal beauty-of-beaches-project">
+      <div class="project-card reveal beauty-of-beaches-project featured-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/bb.png" alt="Beauty of Beaches preview">
           <span class="project-badge">Live</span>
@@ -1098,6 +1221,10 @@
           <div class="project-desc">
             An immersive travel and beach destination website with warm storytelling design and scenic, premium hospitality vibes.
           </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>Website design and front-end development</dd></div>
+            <div><dt>Highlights</dt><dd>Destination-led visuals, travel storytelling, responsive browsing experience</dd></div>
+          </dl>
           <div class="project-tech">
             <span class="tech-tag">Travel</span>
             <span class="tech-tag">Tourism</span>
@@ -1186,6 +1313,10 @@
           <div class="project-desc">
             A wellness-focused WordPress website with a clean, trustworthy brand feel and easy-to-navigate content structure for health audiences.
           </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>WordPress website development</dd></div>
+            <div><dt>Highlights</dt><dd>Wellness content, service-focused layout, straightforward navigation</dd></div>
+          </dl>
           <div class="project-tech">
             <span class="tech-tag">WordPress</span>
             <span class="tech-tag">Wellness</span>
@@ -1242,7 +1373,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal aurelia-atelier-project">
+      <div class="project-card reveal aurelia-atelier-project featured-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/at.png" alt="Aurelia Atelier preview">
           <span class="project-badge">Live</span>
@@ -1252,19 +1383,25 @@
           <div class="project-desc">
             A luxury e-commerce experience for artisanal apparel, precision timepieces, handcrafted leather goods, and refined lifestyle collections.
           </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>E-commerce design and front-end development</dd></div>
+            <div><dt>Highlights</dt><dd>Premium product collections, luxury visual identity, responsive storefront</dd></div>
+          </dl>
           <div class="project-tech">
-            <span class="tech-tag">E-commerce</span>
-            <span class="tech-tag">Luxury</span>
-            <span class="tech-tag">Fashion</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Vite</span>
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">React Router</span>
           </div>
           <div class="project-links">
+            <a href="https://github.com/Aaliyanamir/Aurelia-atelia-" class="project-link" target="_blank" rel="noopener noreferrer">Source Code</a>
             <a href="https://aurelia-atelia.vercel.app/" class="project-link live" target="_blank">View Live</a>
             <a href="https://aurelia-atelia.vercel.app/" class="project-link" target="_blank">Open Site</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card reveal pet-care-project">
+      <div class="project-card reveal pet-care-project featured-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/pet-care.webp" alt="A veterinarian caring for a cat">
           <span class="project-badge">Pet Care</span>
@@ -1274,12 +1411,18 @@
           <div class="project-desc">
             A warm and trustworthy pet care website designed to help pet parents explore services, discover useful care resources, and book support for their beloved companions.
           </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>Pet care website design and development</dd></div>
+            <div><dt>Highlights</dt><dd>Pet health services, veterinary care information, online appointment calls to action</dd></div>
+          </dl>
           <div class="project-tech">
-            <span class="tech-tag">Pet Care</span>
-            <span class="tech-tag">Services</span>
-            <span class="tech-tag">UI/UX</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Express.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Node.js</span>
           </div>
           <div class="project-links">
+            <a href="https://github.com/Aaliyanamir/Fur-Sheild" class="project-link" target="_blank" rel="noopener noreferrer">Source Code</a>
             <a href="https://frontend-nine-indol-48.vercel.app/" class="project-link live" target="_blank">View Live</a>
           </div>
         </div>
@@ -1373,7 +1516,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal fan-hub-project">
+      <div class="project-card reveal fan-hub-project featured-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/fanhub-logo.webp" alt="Fan Hub Plus logo">
           <span class="project-badge">MERN Stack</span>
@@ -1383,7 +1526,12 @@
           <div class="project-desc">
             A full-stack movie and fandom discovery platform featuring trending titles, movies and TV shows, curated fandoms, and detailed content pages powered by TMDB.
           </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>Full-stack application development</dd></div>
+            <div><dt>Highlights</dt><dd>TMDB-powered discovery, trending titles, fandom collections, detailed media pages</dd></div>
+          </dl>
           <div class="project-tech">
+            <span class="tech-tag">Next.js</span>
             <span class="tech-tag">MongoDB</span>
             <span class="tech-tag">Express.js</span>
             <span class="tech-tag">React</span>
@@ -1391,12 +1539,13 @@
             <span class="tech-tag">TMDB API</span>
           </div>
           <div class="project-links">
+            <a href="https://github.com/Aaliyanamir/fanhub-red" class="project-link" target="_blank" rel="noopener noreferrer">Source Code</a>
             <a href="https://fan-hub-plus.vercel.app/" class="project-link live" target="_blank" rel="noopener noreferrer">View Live</a>
           </div>
         </div>
       </div>
 
-      <div class="project-card reveal marketlink-project">
+      <div class="project-card reveal marketlink-project featured-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/marketlink.webp" alt="Fresh produce at a local farmers market">
           <span class="project-badge">Farmers Market</span>
@@ -1406,6 +1555,10 @@
           <div class="project-desc">
             A local farmers' marketplace where customers can browse fresh produce, reserve items and pickup slots ahead of market day, then pay farmers at the stall.
           </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>Marketplace design and development</dd></div>
+            <div><dt>Highlights</dt><dd>Local farmer listings, weekly produce, pickup reservations, pay-at-stall flow</dd></div>
+          </dl>
           <div class="project-tech">
             <span class="tech-tag">Local Farmers</span>
             <span class="tech-tag">Fresh Produce</span>
@@ -1418,6 +1571,9 @@
       </div>
 
     </div>
+    <div class="projects-more reveal">
+      <a href="projects.html">See All Projects <span aria-hidden="true">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -1427,11 +1583,15 @@
     <div class="section-tag reveal">// WORK HISTORY</div>
     <h2 class="section-title reveal">My Experience</h2>
     <div class="exp-card reveal">
-      <div class="exp-company">Aptech North Karachi</div>
-      <div class="exp-role">Web Development Trainee · 1 Year Professional Training</div>
+      <div class="exp-company">Freelance Web Developer &amp; Founder, <a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Aevora Studio</a></div>
+      <div class="exp-role">Currently freelancing on Fiverr · 2+ years of hands-on development experience</div>
       <div class="exp-text">
-        Completed one year of professional web development training, gaining strong hands-on experience in designing and developing responsive and user-friendly websites. Worked on multiple real-world projects including business websites, landing pages, login systems, and e-commerce layouts.<br><br>
-        Developed skills in HTML, CSS, JavaScript, Bootstrap, PHP, and MySQL, focusing on clean code, responsive design, and modern UI/UX practices. Learned to convert design concepts into fully functional web pages, optimize performance, and ensure cross-browser compatibility.
+        Currently working independently with clients to design and build responsive, user-friendly websites and applications, including business websites, landing pages, account flows, and e-commerce experiences. I also founded Aevora Studio to deliver thoughtful digital experiences and web solutions.<br><br>
+        Completed professional web development training at Aptech North Karachi, with 2+ years of hands-on experience. Focused on clean implementation, responsive design, and practical UI/UX using HTML, CSS, JavaScript, React, Node.js, PHP, Laravel, and MySQL.
+      </div>
+      <div class="exp-links">
+        <a href="https://www.fiverr.com/sellers/aaliyanamir921" target="_blank" rel="noopener noreferrer">View my Fiverr profile <span aria-hidden="true">↗</span></a>
+        <a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Explore Aevora Studio <span aria-hidden="true">↗</span></a>
       </div>
       <div class="exp-tags">
         <span class="exp-tag">HTML/CSS</span>
@@ -1481,7 +1641,7 @@
 </section>
 
 <!-- FOOTER SECTION (EXACT MATCH TO REFERENCE PHOTO 3) -->
-<footer>
+<footer id="contact">
   <div class="footer-inner">
     
     <!-- METADATA ROW -->
@@ -1492,7 +1652,7 @@
       </div>
       <div>
         <div class="meta-col-title">// Status</div>
-        <div class="meta-col-val" style="color:var(--green-live)">● Open to Opportunities<br><span style="color:var(--white)">Year 2025</span></div>
+        <div class="meta-col-val" style="color:var(--green-live)">● Open to Opportunities<br><span style="color:var(--white)">Karachi, Pakistan</span></div>
       </div>
       <div>
         <div class="meta-col-title">// Region</div>
@@ -1508,10 +1668,15 @@
     <!-- BOTTOM ROW -->
     <div class="footer-bottom-row">
       <div class="footer-bottom-left">
-        © 2025 Aaliyan Amir | Built with HTML, CSS & JavaScript
+        © <span id="footerYear">2026</span> Aaliyan Amir | Built with HTML, CSS & JavaScript
       </div>
       <div>
         <a href="mailto:aliyanamir911@gmail.com" class="footer-email-link">aliyanamir911@gmail.com</a>
+        <a href="https://wa.me/923702356902" class="footer-email-link" target="_blank" rel="noopener noreferrer">WhatsApp: +92 370 235 6902</a>
+        <a href="https://www.fiverr.com/sellers/aaliyanamir921" class="footer-email-link" target="_blank" rel="noopener noreferrer">Fiverr</a>
+        <a href="https://dynamic-sorbet-84cb7a.netlify.app/" class="footer-email-link" target="_blank" rel="noopener noreferrer">Aevora Studio</a>
+        <a href="https://github.com/Aaliyanamir" class="footer-email-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/aaliyan-aamir-692a343a4" class="footer-email-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="#hero" class="back-to-top">Back to Top ↑</a>
       </div>
     </div>
@@ -1519,110 +1684,128 @@
   </div>
 </footer>
 
+<a class="whatsapp-fab" href="https://wa.me/923702356902" target="_blank" rel="noopener noreferrer" aria-label="Chat with Aaliyan on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M20.2 11.7a8.2 8.2 0 0 1-12.1 7.2L4 20l1.2-4A8.2 8.2 0 1 1 20.2 11.7Z"></path>
+    <path d="M8.5 8.3c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .7.6 1 1.4 1.7 2.4 2.2.3.2.5.2.7-.1l.7-.8c.2-.2.4-.3.7-.2l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.2-.7 1.6-.5.5-1.2.7-2 .5-1.1-.2-2.5-.8-4-2.2-1.2-1.1-2.1-2.5-2.4-3.6-.3-1 .1-1.8.7-2.2Z"></path>
+  </svg>
+  <span class="whatsapp-fab-label">Chat on WhatsApp</span>
+</a>
+
 <!-- CV MODAL -->
-<div class="cv-modal-overlay" id="cvModal" onclick="handleOverlayClick(event)">
+<div class="cv-modal-overlay" id="cvModal" onclick="handleOverlayClick(event)" role="dialog" aria-modal="true" aria-labelledby="cvName" aria-hidden="true">
   <div class="cv-modal">
-    <button class="cv-close" onclick="closeCV()">✕</button>
-    <h2>Aaliyan Amir</h2>
-    <div class="subtitle">Full Stack & MERN Stack Developer — Karachi, Pakistan</div>
+    <button class="cv-close" type="button" onclick="closeCV()" aria-label="Close CV">✕</button>
+    <article class="cv-sheet" id="cvResume">
+      <header class="cv-resume-header">
+        <h2 id="cvName">Aaliyan Amir</h2>
+        <div class="cv-resume-role">Full-Stack &amp; MERN Developer</div>
+        <div class="cv-resume-contact">
+          <a href="mailto:aliyanamir911@gmail.com">aliyanamir911@gmail.com</a>
+          <a href="tel:+923198398494">+92 319 839 8494</a>
+          <a href="https://wa.me/923702356902" target="_blank" rel="noopener noreferrer">WhatsApp · +92 370 235 6902</a>
+          <a href="https://www.fiverr.com/sellers/aaliyanamir921" target="_blank" rel="noopener noreferrer">Fiverr profile</a>
+          <a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Aevora Studio</a>
+          <span>Karachi, Pakistan</span>
+          <a href="https://github.com/Aaliyanamir" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/aaliyan-aamir-692a343a4" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </header>
 
-    <div class="cv-section">
-      <h3>Contact</h3>
-      <div class="cv-contact">
-        <span>📞 03198398494</span>
-        <span>📞 03702356902</span>
-        <span>✉️ aliyanamir911@gmail.com</span>
-        <span>📍 Surjani Town, Karachi</span>
-        <span>🌐 English · Urdu</span>
+      <div class="cv-resume-grid">
+        <div>
+          <section class="cv-section">
+            <h3>Professional Summary</h3>
+            <p class="cv-summary">Full-stack developer with 2+ years of hands-on experience building responsive web applications and digital experiences. Currently freelancing on Fiverr and founder of Aevora Studio, delivering client-focused web solutions across the MERN stack and PHP/Laravel.</p>
+          </section>
+
+          <section class="cv-section">
+            <h3>Experience</h3>
+            <div class="cv-item">
+              <div class="cv-item-title">Freelance Web Developer &amp; Founder, Aevora Studio</div>
+              <div class="cv-item-sub">Currently freelancing on Fiverr · 2+ years of hands-on development experience · Professional training at Aptech North Karachi</div>
+              <ul class="cv-bullets">
+                <li>Built responsive business, e-commerce, and service websites.</li>
+                <li>Developed full-stack features, account flows, and database-backed applications.</li>
+                <li>Applied accessible UI patterns, responsive layouts, and reusable code.</li>
+                <li>Building Aevora Studio as a client-focused web development agency.</li>
+              </ul>
+              <div class="cv-project-list">
+                <div class="cv-project-entry"><span>Fiverr freelance profile</span><a href="https://www.fiverr.com/sellers/aaliyanamir921" target="_blank" rel="noopener noreferrer">View profile ↗</a></div>
+                <div class="cv-project-entry"><span>Aevora Studio agency portfolio</span><a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Visit studio ↗</a></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h3>Selected Projects</h3>
+            <div class="cv-project-list">
+              <div class="cv-project-entry"><span>MarketLink · Local farm marketplace</span><a href="https://ubaidportfolio.infinityfree.me/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Fan Hub Plus · Movie discovery platform</span><a href="https://fan-hub-plus.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Pet Care · Veterinary services</span><a href="https://frontend-nine-indol-48.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Aurelia Atelier · Luxury storefront</span><a href="https://aurelia-atelia.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>AI Prompt Hub · Prompt discovery</span><a href="https://aiprompthub.tech/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Beauty of Beaches · Travel experience</span><a href="https://beauty-of-beaches-created-by-raza.netlify.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+            </div>
+          </section>
+        </div>
+
+        <aside>
+          <section class="cv-section">
+            <h3>Technical Skills</h3>
+            <div class="cv-skills-list">
+              <span class="cv-skill-pill">JavaScript</span>
+              <span class="cv-skill-pill">React</span>
+              <span class="cv-skill-pill">Node.js</span>
+              <span class="cv-skill-pill">Express</span>
+              <span class="cv-skill-pill">MongoDB</span>
+              <span class="cv-skill-pill">HTML &amp; CSS</span>
+              <span class="cv-skill-pill">PHP</span>
+              <span class="cv-skill-pill">Laravel</span>
+              <span class="cv-skill-pill">MySQL</span>
+              <span class="cv-skill-pill">Bootstrap</span>
+              <span class="cv-skill-pill">WordPress</span>
+              <span class="cv-skill-pill">Responsive UI</span>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h3>Education</h3>
+            <div class="cv-item">
+              <div class="cv-item-title">Aptech North Karachi</div>
+              <div class="cv-item-sub">ACCPI — 3-Year Diploma of Software Engineering · In progress</div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Murad Memon Degree College</div>
+              <div class="cv-item-sub">Intermediate · In progress</div>
+            </div>
+            <div class="cv-item">
+              <div class="cv-item-title">Little Genius Grammar School</div>
+              <div class="cv-item-sub">Matriculation · Science</div>
+            </div>
+          </section>
+
+          <section class="cv-section">
+            <h3>Languages</h3>
+            <p class="cv-summary">English · Urdu</p>
+          </section>
+
+          <section class="cv-section">
+            <h3>Strengths</h3>
+            <ul class="cv-strengths">
+              <li>Responsive web development</li>
+              <li>Problem solving</li>
+              <li>UI implementation</li>
+              <li>Full-stack delivery</li>
+            </ul>
+          </section>
+        </aside>
       </div>
+    </article>
+    <div class="cv-actions">
+      <button class="cv-download" type="button" onclick="window.print()">Download / Print CV</button>
+      <button class="cv-download cv-secondary" type="button" onclick="closeCV()">Close</button>
     </div>
-
-    <div class="cv-section">
-      <h3>About</h3>
-      <p style="font-size:0.88rem;color:var(--muted);line-height:1.7">Highly motivated and detail-oriented Full Stack and MERN Stack Developer with a strong passion for building modern, responsive, and user-focused websites and web applications. Skilled in MongoDB, Express, React, Node.js, HTML, CSS, JavaScript, Bootstrap, PHP, Laravel, and MySQL.</p>
-    </div>
-
-    <div class="cv-section">
-      <h3>Experience</h3>
-      <div class="cv-item">
-        <div class="cv-item-title">Aptech North Karachi — Web Development Trainee</div>
-        <div class="cv-item-sub">2+ Years Professional Training · Real-world projects including business sites, landing pages, login systems & e-commerce layouts</div>
-      </div>
-    </div>
-
-    <div class="cv-section">
-      <h3>Education</h3>
-      <div class="cv-item">
-        <div class="cv-item-title">Aptech North Karachi</div>
-        <div class="cv-item-sub">ACCPI — 3 Year Diploma of Software Engineering (Currently Enrolled)</div>
-      </div>
-      <div class="cv-item">
-        <div class="cv-item-title">Murad Memon Degree College</div>
-        <div class="cv-item-sub">Intermediate (Currently Enrolled)</div>
-      </div>
-      <div class="cv-item">
-        <div class="cv-item-title">Little Genius Grammar School</div>
-        <div class="cv-item-sub">Matriculation — Science Group</div>
-      </div>
-    </div>
-
-    <div class="cv-section">
-      <h3>Skills</h3>
-      <div class="cv-skills-list">
-        <span class="cv-skill-pill">HTML / CSS</span>
-        <span class="cv-skill-pill">JavaScript</span>
-        <span class="cv-skill-pill">Bootstrap</span>
-        <span class="cv-skill-pill">PHP</span>
-        <span class="cv-skill-pill">Laravel</span>
-        <span class="cv-skill-pill">MySQL</span>
-        <span class="cv-skill-pill">WordPress</span>
-        <span class="cv-skill-pill">Python (Basic)</span>
-        <span class="cv-skill-pill">SEO (Basic)</span>
-        <span class="cv-skill-pill">MS Office</span>
-        <span class="cv-skill-pill">Problem Solving</span>
-        <span class="cv-skill-pill">UI/UX Design</span>
-        <span class="cv-skill-pill">Angular</span>
-        <span class="cv-skill-pill">React</span>
-        <span class="cv-skill-pill">MERN Stack</span>
-        <span class="cv-skill-pill">Next.js</span>
-        <span class="cv-skill-pill">MongoDB</span>
-        <span class="cv-skill-pill">Azure</span>
-        <span class="cv-skill-pill">Shopify</span>
-        <span class="cv-skill-pill">Graphic Design</span>
-        <span class="cv-skill-pill">Video Editing</span>
-        <span class="cv-skill-pill">C# / .NET</span>
-        <span class="cv-skill-pill">Digital Marketing</span>
-      </div>
-    </div>
-
-    <div class="cv-section">
-      <h3>Projects</h3>
-      <div class="cv-item"><div class="cv-item-title">AIPromptHub</div></div>
-      <div class="cv-item"><div class="cv-item-title">Tech Olympic 2026</div></div>
-      <div class="cv-item"><div class="cv-item-title">Rajput Sports</div></div>
-      <div class="cv-item"><div class="cv-item-title">Beauty of Beaches</div></div>
-      <div class="cv-item"><div class="cv-item-title">CineVault</div></div>
-      <div class="cv-item"><div class="cv-item-title">Free AI New</div></div>
-      <div class="cv-item"><div class="cv-item-title">Good For Wellness</div></div>
-      <div class="cv-item"><div class="cv-item-title">Gracious Garments</div></div>
-      <div class="cv-item"><div class="cv-item-title">Aaliyan Amir Portfolio</div></div>
-      <div class="cv-item"><div class="cv-item-title">Aurelia Atelier</div></div>
-      <div class="cv-item"><div class="cv-item-title">Pet Care Website</div></div>
-    </div>
-
-    <div class="cv-section">
-      <h3>Skills Summary</h3>
-      <div style="margin-bottom:0.8rem">
-        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem"><span>Design Process</span><span style="color:var(--white)">78%</span></div>
-        <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:99px"><div style="height:100%;width:78%;background:var(--white);border-radius:99px"></div></div>
-      </div>
-      <div>
-        <div style="display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:0.3rem"><span>Project Management</span><span style="color:var(--white)">81%</span></div>
-        <div style="height:5px;background:rgba(255,255,255,0.08);border-radius:99px"><div style="height:100%;width:81%;background:var(--white);border-radius:99px"></div></div>
-      </div>
-    </div>
-
-    <button class="cv-download" onclick="window.print()">⬇️ Download / Print CV</button>
   </div>
 </div>
 
@@ -1680,14 +1863,27 @@
     obs.observe(bar);
   });
 
+  let cvReturnFocus = null;
+
   // CV MODAL LOGIC
   function openCV() {
-    document.getElementById('cvModal').classList.add('active');
+    const modal = document.getElementById('cvModal');
+    cvReturnFocus = document.activeElement;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    modal.querySelector('.cv-close').focus();
+  }
+  function downloadCV() {
+    openCV();
+    window.setTimeout(() => window.print(), 250);
   }
   function closeCV() {
-    document.getElementById('cvModal').classList.remove('active');
+    const modal = document.getElementById('cvModal');
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (cvReturnFocus && typeof cvReturnFocus.focus === 'function') cvReturnFocus.focus();
   }
   function handleOverlayClick(e) {
     if (e.target === document.getElementById('cvModal')) closeCV();
@@ -1695,6 +1891,7 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeCV();
   });
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
