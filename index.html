@@ -378,23 +378,18 @@
   /* PROJECTS SECTION */
   #projects { background: #08080a; }
   .projects-grid { display: flex; flex-direction: column; gap: 2.2rem; }
-  
-  /* Order preserved */
-  .projects-grid .project-card:nth-child(13) { order: 1; }
-  .projects-grid .project-card:nth-child(12) { order: 2; }
-  .projects-grid .project-card:nth-child(2) { order: 3; }
-  .projects-grid .project-card:nth-child(5) { order: 4; }
-  .projects-grid .project-card:nth-child(9) { order: 5; }
-  .projects-grid .project-card:nth-child(4) { order: 6; }
-  .projects-grid .project-card:nth-child(3) { order: 7; }
-  .projects-grid .project-card:nth-child(8) { order: 8; }
-  .projects-grid .project-card:nth-child(10) { order: 9; }
-  .projects-grid .project-card:nth-child(11) { order: 10; }
-  .projects-grid .project-card:nth-child(14) { order: 11; }
-  .projects-grid .project-card:nth-child(1) { order: 12; }
-  .projects-grid .project-card:nth-child(6) { order: 13; }
-  .projects-grid .project-card:nth-child(7) { order: 14; }
-  .projects-grid .fan-hub-project { order: -1; }
+
+  .marketlink-project { order: -9; }
+  .fan-hub-project { order: -8; }
+  .pet-care-project { order: -7; }
+  .aurelia-atelier-project { order: -6; }
+  .ai-prompthub-project { order: -5; }
+  .beauty-of-beaches-project { order: -4; }
+  .good-for-wellness-project { order: -3; }
+  .pawcare-project { order: -2; }
+  .burger-shop-project { order: -1; }
+  .fan-hub-project .project-media { background: radial-gradient(ellipse at center, rgba(163, 216, 29, 0.12), #08090a 70%); }
+  .fan-hub-project .project-image { object-fit: contain; padding: 3rem; }
 
   .project-card {
     display: grid; grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
@@ -746,7 +741,7 @@
   <!-- FIXED PORTRAIT ON THE RIGHT -->
   <div class="hero-photo-container">
     <div class="hero-photo-wrap">
-      <img src="assets/images/my_pic_nobg.png" alt="Aaliyan Amir" class="hero-photo" onerror="this.src='assets/images/my_pic.png'">
+      <img src="assets/images/my_pic_nobg.webp" alt="Aaliyan Amir" class="hero-photo">
     </div>
   </div>
 
@@ -770,7 +765,7 @@
       <div class="about-left-col">
         <div class="about-spotlight-glow"></div>
         <div class="about-card-frame">
-          <img src="assets/images/my_pic_nobg.png" alt="Aaliyan Amir" class="about-card-img" onerror="this.src='assets/images/my_pic.png'">
+          <img src="assets/images/my_pic_nobg.webp" alt="Aaliyan Amir" class="about-card-img">
           <div class="about-card-footer">
             <div class="open-badge">
               <span class="green-dot"></span> OPEN TO OPPORTUNITIES
@@ -1027,13 +1022,13 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal ai-prompthub-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/ai.png" alt="AIPromptHub preview">
           <span class="project-badge">Live</span>
         </div>
         <div class="project-content">
-          <div class="project-title">AIPromptHub</div>
+          <div class="project-title">AI Prompt Hub</div>
           <div class="project-desc">
             A premium AI prompt discovery platform with curated prompt collections, modern UI, and a clean conversion-focused interface.
           </div>
@@ -1093,7 +1088,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal beauty-of-beaches-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/bb.png" alt="Beauty of Beaches preview">
           <span class="project-badge">Live</span>
@@ -1181,7 +1176,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal good-for-wellness-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/gfw.png" alt="Good For Wellness preview">
           <span class="project-badge">WordPress</span>
@@ -1247,7 +1242,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal aurelia-atelier-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/at.png" alt="Aurelia Atelier preview">
           <span class="project-badge">Live</span>
@@ -1269,9 +1264,9 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal pet-care-project">
         <div class="project-media">
-          <img class="project-image" src="assets/images/pet.png" alt="Pet Care preview">
+          <img class="project-image" src="assets/images/pet-care.webp" alt="A veterinarian caring for a cat">
           <span class="project-badge">Pet Care</span>
         </div>
         <div class="project-content">
@@ -1290,7 +1285,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal burger-shop-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/burger.png" alt="Burger Shop preview">
           <span class="project-badge">Live</span>
@@ -1312,7 +1307,7 @@
         </div>
       </div>
 
-      <div class="project-card reveal">
+      <div class="project-card reveal pawcare-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/pawcare.png" alt="PawCare preview">
           <span class="project-badge">Pet Care</span>
@@ -1380,7 +1375,7 @@
 
       <div class="project-card reveal fan-hub-project">
         <div class="project-media">
-          <div class="project-image-placeholder"><img class="project-image" src="assets/images/fanhub.png" alt=""></div>
+          <img class="project-image" src="assets/images/fanhub-logo.webp" alt="Fan Hub Plus logo">
           <span class="project-badge">MERN Stack</span>
         </div>
         <div class="project-content">
@@ -1397,6 +1392,27 @@
           </div>
           <div class="project-links">
             <a href="https://fan-hub-plus.vercel.app/" class="project-link live" target="_blank" rel="noopener noreferrer">View Live</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal marketlink-project">
+        <div class="project-media">
+          <img class="project-image" src="assets/images/marketlink.webp" alt="Fresh produce at a local farmers market">
+          <span class="project-badge">Farmers Market</span>
+        </div>
+        <div class="project-content">
+          <div class="project-title">MarketLink</div>
+          <div class="project-desc">
+            A local farmers' marketplace where customers can browse fresh produce, reserve items and pickup slots ahead of market day, then pay farmers at the stall.
+          </div>
+          <div class="project-tech">
+            <span class="tech-tag">Local Farmers</span>
+            <span class="tech-tag">Fresh Produce</span>
+            <span class="tech-tag">Pre-orders</span>
+          </div>
+          <div class="project-links">
+            <a href="https://ubaidportfolio.infinityfree.me/" class="project-link live" target="_blank" rel="noopener noreferrer">View Live</a>
           </div>
         </div>
       </div>
