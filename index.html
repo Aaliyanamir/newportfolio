@@ -378,7 +378,49 @@
   }
 
   /* SKILLS SECTION */
-  #skills { background: #060608; }
+  #skills { background: #08080b; }
+  #skills .section-inner { max-width: 1180px; }
+  #skills .section-title { margin-bottom: 1.1rem; }
+  .skills-intro {
+    max-width: 650px; margin: 0 0 2.3rem;
+    color: var(--muted); font-size: 1.05rem; line-height: 1.8;
+  }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.15rem;
+  }
+  .skill-card {
+    min-width: 0; padding: 1.65rem; border: 1px solid rgba(255,255,255,.1);
+    border-radius: 16px; background: linear-gradient(145deg, #121218, #0d0d12);
+  }
+  .skill-card-top {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 1rem; margin-bottom: 1rem;
+  }
+  .skill-category {
+    display: block; margin-bottom: .45rem; color: #a1a1aa;
+    font-family: var(--font-code); font-size: .72rem; letter-spacing: 1.6px;
+    text-transform: uppercase;
+  }
+  .skill-name {
+    color: var(--white); font-family: var(--font-head);
+    font-size: 1.25rem; font-weight: 700; letter-spacing: -.3px;
+  }
+  .skill-index {
+    flex: 0 0 auto; color: #71717a; font-family: var(--font-code);
+    font-size: .78rem; padding-top: .15rem;
+  }
+  .skill-desc {
+    max-width: 48ch; margin-bottom: 1.2rem; color: var(--muted);
+    font-size: .9rem; line-height: 1.7;
+  }
+  .skill-tags {
+    display: flex; flex-wrap: wrap; gap: .55rem; list-style: none;
+  }
+  .skill-tags li {
+    padding: .4rem .72rem; border: 1px solid rgba(255,255,255,.12);
+    border-radius: 7px; background: rgba(255,255,255,.035);
+    color: #e4e4e7; font-size: .82rem; line-height: 1.35;
+  }
   .section-tag {
     font-family: var(--font-code); font-size: 0.8rem; text-transform: uppercase;
     letter-spacing: 2.5px; color: var(--muted); margin-bottom: 0.8rem;
@@ -387,22 +429,6 @@
     font-family: var(--font-head); font-size: clamp(2.2rem, 3.8vw, 3.4rem);
     font-weight: 800; letter-spacing: -1px; margin-bottom: 3.5rem;
   }
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.4rem; }
-  .skill-card {
-    background: #0e0e14; border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px; padding: 1.6rem 1.8rem; transition: all 0.3s ease;
-  }
-  .skill-card:hover {
-    border-color: rgba(255, 255, 255, 0.3); transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
-  }
-  .skill-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
-  .skill-icon { font-size: 1.8rem; }
-  .skill-name { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--white); }
-  .skill-desc { font-size: 0.86rem; color: var(--muted); margin-bottom: 1.2rem; min-height: 2.4em; }
-  .skill-bar-wrap { height: 5px; background: rgba(255, 255, 255, 0.08); border-radius: 99px; overflow: hidden; }
-  .skill-bar { height: 100%; border-radius: 99px; background: var(--white); width: 0; transition: width 1.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
-
   /* PROJECTS SECTION */
   #projects { background: #08080a; }
   .projects-grid { display: flex; flex-direction: column; gap: 2.2rem; }
@@ -768,7 +794,7 @@
     .stat-card { padding: 1rem 1.1rem; }
     .skills-grid { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
     .skill-card { min-width: 0; padding: 1.25rem; }
-    .skill-name { min-width: 0; font-size: 0.98rem; }
+    .skill-name { min-width: 0; font-size: 1.1rem; }
     .project-card { border-radius: 18px; }
     .project-media { aspect-ratio: 4 / 3; }
     .project-content { padding: 1.25rem; }
@@ -925,190 +951,69 @@
 <!-- SKILLS SECTION -->
 <section id="skills">
   <div class="section-inner">
-    <div class="section-tag reveal">// TECHNICAL PROFICIENCY</div>
-    <h2 class="section-title reveal">Technical Skills</h2>
+    <div class="section-tag">// WHAT I WORK WITH</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="skills-intro">A practical toolkit for building responsive interfaces, full-stack applications, and polished digital experiences.</p>
     <div class="skills-grid">
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🌐</div>
-          <div class="skill-name">Full Stack Development</div>
+      <article class="skill-card">
+        <div class="skill-card-top">
+          <div>
+            <span class="skill-category">Client side</span>
+            <h3 class="skill-name">Frontend &amp; UI</h3>
+          </div>
+          <span class="skill-index" aria-hidden="true">01</span>
         </div>
-        <div class="skill-desc">HTML, CSS, JavaScript, Bootstrap — end-to-end web applications</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="88"></div></div>
-      </div>
+        <p class="skill-desc">Building responsive, accessible interfaces with reusable components and thoughtful user experiences.</p>
+        <ul class="skill-tags" aria-label="Frontend and UI skills">
+          <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Bootstrap</li>
+          <li>React</li><li>Angular</li><li>Next.js</li><li>UI/UX Design</li><li>Full-Stack Development</li>
+        </ul>
+      </article>
 
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🐘</div>
-          <div class="skill-name">PHP & Laravel</div>
+      <article class="skill-card">
+        <div class="skill-card-top">
+          <div>
+            <span class="skill-category">Server side</span>
+            <h3 class="skill-name">Backend &amp; Full Stack</h3>
+          </div>
+          <span class="skill-index" aria-hidden="true">02</span>
         </div>
-        <div class="skill-desc">Server-side development with PHP and Laravel framework</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="82"></div></div>
-      </div>
+        <p class="skill-desc">Developing application logic, server-side features, and integrations for end-to-end web products.</p>
+        <ul class="skill-tags" aria-label="Backend and full-stack skills">
+          <li>MERN Stack</li><li>Node.js</li><li>Express.js</li><li>PHP</li>
+          <li>Laravel</li><li>Web APIs / REST</li><li>C# / .NET</li><li>Python (Basic)</li>
+        </ul>
+      </article>
 
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🗄️</div>
-          <div class="skill-name">MySQL & SQL Databases</div>
+      <article class="skill-card">
+        <div class="skill-card-top">
+          <div>
+            <span class="skill-category">Data &amp; platforms</span>
+            <h3 class="skill-name">Databases &amp; Platforms</h3>
+          </div>
+          <span class="skill-index" aria-hidden="true">03</span>
         </div>
-        <div class="skill-desc">Database design, queries, and management with MySQL</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="80"></div></div>
-      </div>
+        <p class="skill-desc">Working with structured and NoSQL data, cloud workflows, and popular content and commerce platforms.</p>
+        <ul class="skill-tags" aria-label="Database and platform skills">
+          <li>MySQL</li><li>SQL</li><li>MongoDB</li><li>Azure</li>
+          <li>WordPress</li><li>Shopify</li>
+        </ul>
+      </article>
 
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🔷</div>
-          <div class="skill-name">WordPress Development</div>
+      <article class="skill-card">
+        <div class="skill-card-top">
+          <div>
+            <span class="skill-category">Delivery &amp; growth</span>
+            <h3 class="skill-name">Creative &amp; Professional</h3>
+          </div>
+          <span class="skill-index" aria-hidden="true">04</span>
         </div>
-        <div class="skill-desc">Custom themes, plugins and WordPress site development</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🎨</div>
-          <div class="skill-name">UI/UX & Design Process</div>
-        </div>
-        <div class="skill-desc">Responsive design, modern UI/UX — 78% proficiency</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="78"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">📊</div>
-          <div class="skill-name">Project Management</div>
-        </div>
-        <div class="skill-desc">Planning, coordination and delivery — 81% proficiency</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="81"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🐍</div>
-          <div class="skill-name">Python (Basic)</div>
-        </div>
-        <div class="skill-desc">Foundational Python programming and scripting</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="40"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🔍</div>
-          <div class="skill-name">SEO (Basic)</div>
-        </div>
-        <div class="skill-desc">Search engine optimization fundamentals and best practices</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="45"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🅰️</div>
-          <div class="skill-name">Angular Development</div>
-        </div>
-        <div class="skill-desc">Building interactive single-page applications with Angular</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">⚛️</div>
-          <div class="skill-name">React</div>
-        </div>
-        <div class="skill-desc">Reusable components, UI logic, and modern frontend workflows</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="74"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🧩</div>
-          <div class="skill-name">MERN Stack</div>
-        </div>
-        <div class="skill-desc">Full stack JavaScript development with MongoDB, Express, React, and Node.js</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">▲</div>
-          <div class="skill-name">Next.js</div>
-        </div>
-        <div class="skill-desc">Server-rendered and production-ready React applications</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🗃️</div>
-          <div class="skill-name">MongoDB</div>
-        </div>
-        <div class="skill-desc">NoSQL database modeling, schema design, and integration</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="68"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">☁️</div>
-          <div class="skill-name">Azure</div>
-        </div>
-        <div class="skill-desc">Cloud deployment, app hosting, and Azure-based workflows</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="66"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🛍️</div>
-          <div class="skill-name">Shopify</div>
-        </div>
-        <div class="skill-desc">Storefront customization, theme logic, and product-focused UX</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="76"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">💼</div>
-          <div class="skill-name">MS Office & Problem Solving</div>
-        </div>
-        <div class="skill-desc">Microsoft Office suite and analytical problem-solving skills</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="85"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🎨</div>
-          <div class="skill-name">Graphic Design & Video Editing</div>
-        </div>
-        <div class="skill-desc">Creating visuals and editing videos using Adobe tools</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="75"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🔷</div>
-          <div class="skill-name">C# Developer</div>
-        </div>
-        <div class="skill-desc">C# programming and .NET development</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="70"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">📈</div>
-          <div class="skill-name">Digital Marketing</div>
-        </div>
-        <div class="skill-desc">Digital marketing strategies, SEO, social media, and analytics</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="65"></div></div>
-      </div>
-
-      <div class="skill-card reveal">
-        <div class="skill-header">
-          <div class="skill-icon">🔌</div>
-          <div class="skill-name">Web API</div>
-        </div>
-        <div class="skill-desc">Building and integrating REST APIs for connected web applications</div>
-        <div class="skill-bar-wrap"><div class="skill-bar" data-width="72"></div></div>
-      </div>
-
+        <p class="skill-desc">Supporting projects from planning through launch with creative production and digital growth fundamentals.</p>
+        <ul class="skill-tags" aria-label="Creative and professional skills">
+          <li>Project Management</li><li>Problem Solving</li><li>MS Office</li>
+          <li>Graphic Design</li><li>Video Editing</li><li>Digital Marketing</li><li>SEO (Basic)</li>
+        </ul>
+      </article>
     </div>
   </div>
 </section>
@@ -1837,31 +1742,17 @@
     document.getElementById('scrollProgress').style.transform = `scaleX(${pct})`;
   });
 
-  // CASCADING SCROLL REVEAL & SKILL ANIMATIONS
+  // SCROLL REVEAL
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-
-        const bar = entry.target.querySelector('.skill-bar');
-        if (bar) {
-          setTimeout(() => {
-            bar.style.width = bar.dataset.width + '%';
-          }, 200);
-        }
       }
     });
   }, { threshold: 0.12 });
 
   revealEls.forEach(el => observer.observe(el));
-
-  document.querySelectorAll('.skill-bar').forEach(bar => {
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) bar.style.width = bar.dataset.width + '%';
-    }, { threshold: 0.5 });
-    obs.observe(bar);
-  });
 
   let cvReturnFocus = null;
 
