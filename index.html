@@ -433,9 +433,10 @@
   #projects { background: #08080a; }
   .projects-grid { display: flex; flex-direction: column; gap: 2.2rem; }
 
-  .marketlink-project { order: -9; }
-  .fan-hub-project { order: -8; }
-  .pet-care-project { order: -7; }
+  .marketlink-project { order: -10; }
+  .fan-hub-project { order: -9; }
+  .pet-care-project { order: -8; }
+  .golden-visa-project { order: -7; }
   .aurelia-atelier-project { order: -6; }
   .ai-prompthub-project { order: -5; }
   .beauty-of-beaches-project { order: -4; }
@@ -673,43 +674,47 @@
   }
   .cv-download:hover { background: #e4e4e7; transform: translateY(-2px); }
 
-  /* PRINT-READY CV */
+  /* CV PREVIEW */
   .cv-modal-overlay {
-    overflow-y: auto; align-items: flex-start; padding: 2.5vh 1rem;
+    overflow: hidden; align-items: center; padding: 1rem;
     visibility: hidden;
   }
   .cv-modal-overlay.active { visibility: visible; }
   .cv-modal {
-    width: min(900px, 100%); max-width: 900px; max-height: none; overflow: visible;
-    padding: 0; border: 0; border-radius: 18px; background: #f4f6fa;
-    color: #172033; box-shadow: 0 30px 100px rgba(0,0,0,.65);
+    width: min(960px, 100%); max-width: 960px; max-height: min(92dvh, 900px);
+    overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable;
+    padding: 0; border: 1px solid rgba(255,255,255,.12); border-radius: 20px;
+    background: #0e0e12; color: var(--white);
+    box-shadow: 0 30px 100px rgba(0,0,0,.65);
   }
-  .cv-sheet { padding: 2.6rem 3rem; }
-  .cv-resume-header { padding-bottom: 1.35rem; border-bottom: 2px solid #dbe2ed; }
-  .cv-resume-header h2 { margin: 0; color: #13213c; font-family: var(--font-head); font-size: 2.35rem; line-height: 1.05; }
-  .cv-resume-role { margin-top: .35rem; color: #45546c; font-size: 1rem; font-weight: 700; }
-  .cv-resume-contact { display: flex; flex-wrap: wrap; gap: .45rem 1rem; margin-top: .95rem; color: #46546a; font-size: .78rem; }
-  .cv-resume-contact a { color: #2455a4; text-decoration: none; }
-  .cv-resume-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(205px, .9fr); gap: 2rem; padding-top: 1.35rem; }
-  .cv-section { margin-bottom: 1.3rem; }
-  .cv-section h3 { margin-bottom: .62rem; padding: 0; border: 0; color: #1d4d91; font-family: var(--font-code); font-size: .75rem; letter-spacing: 1.35px; }
-  .cv-item { margin-bottom: .75rem; }
-  .cv-item-title { color: #19263c; font-size: .9rem; font-weight: 800; }
-  .cv-item-sub { color: #506078; font-size: .78rem; line-height: 1.55; }
-  .cv-summary { color: #42516a; font-size: .84rem; line-height: 1.65; }
-  .cv-bullets { margin: .35rem 0 0 1rem; padding: 0; color: #4b5a71; font-size: .77rem; line-height: 1.55; }
-  .cv-bullets li { margin-bottom: .2rem; }
-  .cv-project-list { display: grid; gap: .48rem; }
-  .cv-project-entry { display: flex; justify-content: space-between; align-items: baseline; gap: .6rem; color: #24334c; font-size: .78rem; font-weight: 700; }
-  .cv-project-entry a { color: #2455a4; font-size: .72rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
-  .cv-skills-list { display: flex; flex-wrap: wrap; gap: .4rem; }
-  .cv-skill-pill { padding: .28rem .55rem; border: 1px solid #d9e1ec; border-radius: 6px; background: #fff; color: #32435c; font-size: .72rem; }
-  .cv-strengths { margin: 0; padding-left: 1rem; color: #4b5a71; font-size: .78rem; line-height: 1.7; }
-  .cv-actions { display: flex; gap: .7rem; padding: 0 3rem 2rem; }
+  .cv-sheet { padding: 1.5rem 2rem 1rem; }
+  .cv-resume-header { padding-bottom: .8rem; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .cv-resume-header h2 { margin: 0; color: var(--white); font-family: var(--font-head); font-size: 2rem; line-height: 1.05; }
+  .cv-resume-role { margin-top: .25rem; color: #d4d4d8; font-size: .92rem; font-weight: 700; }
+  .cv-resume-contact { display: flex; flex-wrap: wrap; gap: .28rem .8rem; margin-top: .65rem; color: var(--muted); font-size: .74rem; }
+  .cv-resume-contact a { color: var(--green-live); text-decoration: none; }
+  .cv-resume-contact a:hover, .cv-project-entry a:hover { text-decoration: underline; }
+  .cv-resume-grid { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(205px, .9fr); gap: 1.35rem; padding-top: .85rem; }
+  .cv-modal .cv-section { margin-bottom: .8rem; padding: 0; }
+  .cv-section h3 { margin-bottom: .38rem; padding: 0; border: 0; color: var(--green-live); font-family: var(--font-code); font-size: .7rem; letter-spacing: 1.1px; }
+  .cv-item { margin-bottom: .5rem; }
+  .cv-item-title { color: var(--white); font-size: .84rem; font-weight: 800; }
+  .cv-item-sub { color: #a1a1aa; font-size: .72rem; line-height: 1.4; }
+  .cv-summary { color: #d4d4d8; font-size: .77rem; line-height: 1.48; }
+  .cv-bullets { margin: .2rem 0 0 .95rem; padding: 0; color: #c4c4cc; font-size: .72rem; line-height: 1.38; }
+  .cv-bullets li { margin-bottom: .08rem; }
+  .cv-project-list { display: grid; gap: .25rem; }
+  .cv-project-entry { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; color: #e4e4e7; font-size: .72rem; font-weight: 600; line-height: 1.35; }
+  .cv-project-entry a { color: var(--green-live); font-size: .68rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .cv-skills-list { display: flex; flex-wrap: wrap; gap: .28rem; }
+  .cv-skill-pill { padding: .2rem .45rem; border: 1px solid rgba(255,255,255,.14); border-radius: 6px; background: rgba(255,255,255,.045); color: #e4e4e7; font-size: .67rem; }
+  .cv-strengths { margin: 0; padding-left: .95rem; color: #c4c4cc; font-size: .73rem; line-height: 1.45; }
+  .cv-actions { display: flex; gap: .6rem; padding: .65rem 2rem 1rem; border-top: 1px solid rgba(255,255,255,.1); background: #0e0e12; }
   .cv-actions .cv-download { margin: 0; }
-  .cv-actions .cv-secondary { background: #e5e9f0; color: #25334a; }
-  .cv-close { z-index: 2; top: 1rem; right: 1rem; color: #33415a; background: #fff; border-color: #dce3ed; cursor: pointer; }
-  .cv-close:hover { border-color: #2455a4; color: #2455a4; }
+  .cv-actions .cv-download { min-height: 42px; padding: .6rem .9rem; background: var(--white); color: #08080a; font-size: .85rem; }
+  .cv-actions .cv-secondary { border: 1px solid rgba(255,255,255,.16); background: rgba(255,255,255,.06); color: var(--white); }
+  .cv-close { z-index: 2; top: .8rem; right: .8rem; color: var(--white); background: #1a1a20; border-color: rgba(255,255,255,.16); cursor: pointer; }
+  .cv-close:hover { border-color: var(--green-live); color: var(--green-live); }
 
   .featured-project { display: grid !important; }
   .projects-grid .project-card:not(.featured-project) { display: none; }
@@ -726,6 +731,12 @@
     #cvModal .cv-sheet { padding: 0 !important; }
     #cvModal .cv-close, #cvModal .cv-actions { display: none !important; }
     #cvModal .cv-resume-grid { grid-template-columns: minmax(0, 1.65fr) minmax(190px, .9fr) !important; gap: 1.2rem !important; }
+    #cvModal .cv-resume-header { border-color: #dbe2ed !important; }
+    #cvModal .cv-resume-header h2, #cvModal .cv-item-title { color: #172033 !important; }
+    #cvModal .cv-resume-role, #cvModal .cv-item-sub, #cvModal .cv-summary, #cvModal .cv-bullets, #cvModal .cv-project-entry, #cvModal .cv-strengths { color: #42516a !important; }
+    #cvModal .cv-section h3 { color: #1d4d91 !important; }
+    #cvModal .cv-resume-contact a, #cvModal .cv-project-entry a { color: #2455a4 !important; }
+    #cvModal .cv-skill-pill { border-color: #d9e1ec !important; background: #fff !important; color: #32435c !important; }
     #cvModal .cv-section, #cvModal .cv-item { break-inside: avoid; }
     #cvModal a { color: #2455a4 !important; }
     .whatsapp-fab { display: none !important; }
@@ -831,11 +842,15 @@
     .cv-close { cursor: pointer; }
     .cv-download { cursor: pointer; }
     .cv-modal-overlay { padding: .5rem; }
-    .cv-sheet { padding: 2rem 1.2rem 1rem; }
-    .cv-resume-header h2 { padding-right: 2.2rem; font-size: 1.8rem; }
+    .cv-modal { max-height: 96dvh; border-radius: 16px; }
+    .cv-sheet { padding: 1rem .9rem .6rem; }
+    .cv-resume-header h2 { padding-right: 2.2rem; font-size: 1.65rem; }
+    .cv-resume-contact { gap: .25rem .55rem; font-size: .7rem; }
     .cv-resume-grid { grid-template-columns: 1fr; gap: 0; }
-    .cv-actions { padding: 0 1.2rem 1.2rem; }
-    .cv-actions .cv-download { padding: .8rem .4rem; font-size: .82rem; }
+    .cv-resume-grid { padding-top: .65rem; }
+    .cv-section { margin-bottom: .65rem; }
+    .cv-actions { padding: .55rem .9rem .8rem; }
+    .cv-actions .cv-download { min-height: 40px; padding: .55rem .4rem; font-size: .78rem; }
     .project-details div { grid-template-columns: 1fr; gap: .1rem; }
   }
 </style>
@@ -925,7 +940,7 @@
         <div class="about-code-tag">// WHO I AM & ABOUT</div>
         <h2 class="about-heading">Hello, I'm<br>Aaliyan Amir</h2>
         <p class="about-desc-paragraph">
-          A passionate Full-Stack and MERN Stack Developer based in Karachi dedicated to crafting clean, functional, and highly scalable web applications. I currently freelance and am the founder of <a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Aevora Studio</a>. Completed one year of professional web development training at Aptech North Karachi and currently pursuing a 3-Year ACCPI Diploma of Software Engineering.
+          A passionate Full-Stack and MERN Stack Developer based in Karachi, Pakistan, dedicated to crafting clean, functional, and highly scalable web applications. I currently freelance and am the founder of <a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Aevora Studio</a>. Completed one year of professional web development training at Aptech North Karachi and currently pursuing a 3-Year ACCPI Diploma of Software Engineering.
         </p>
 
         <div class="about-stat-cards">
@@ -1333,6 +1348,31 @@
         </div>
       </div>
 
+      <div class="project-card reveal golden-visa-project featured-project">
+        <div class="project-media">
+          <img class="project-image" src="https://goldenvisa-psi.vercel.app/_next/image?url=%2Fassets%2Fgolden-visa%2Fdubai-residency.webp&amp;w=1200&amp;q=75" alt="Dubai skyline representing UAE residency services">
+          <span class="project-badge">Live</span>
+        </div>
+        <div class="project-content">
+          <div class="project-title">Golden Visa UAE</div>
+          <div class="project-desc">
+            A polished UAE residency and corporate services website helping visitors compare visa pathways, understand application requirements, and explore tailored support.
+          </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>Website design and development</dd></div>
+            <div><dt>Highlights</dt><dd>Visa pathway guidance, corporate services, responsive user experience</dd></div>
+          </dl>
+          <div class="project-tech">
+            <span class="tech-tag">UAE Residency</span>
+            <span class="tech-tag">Golden Visa</span>
+            <span class="tech-tag">Corporate Services</span>
+          </div>
+          <div class="project-links">
+            <a href="https://goldenvisa-psi.vercel.app/" class="project-link live" target="_blank" rel="noopener noreferrer">View Live</a>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card reveal burger-shop-project">
         <div class="project-media">
           <img class="project-image" src="assets/images/burger.png" alt="Burger Shop preview">
@@ -1561,7 +1601,7 @@
       </div>
       <div>
         <div class="meta-col-title">// Region</div>
-        <div class="meta-col-val">Surjani Town, Karachi<br>Pakistan</div>
+        <div class="meta-col-val">Karachi, Pakistan</div>
       </div>
     </div>
 
@@ -1604,7 +1644,7 @@
     <article class="cv-sheet" id="cvResume">
       <header class="cv-resume-header">
         <h2 id="cvName">Aaliyan Amir</h2>
-        <div class="cv-resume-role">Full-Stack &amp; MERN Developer</div>
+        <div class="cv-resume-role">Full-Stack Developer · MERN, PHP &amp; Laravel</div>
         <div class="cv-resume-contact">
           <a href="mailto:aliyanamir911@gmail.com">aliyanamir911@gmail.com</a>
           <a href="tel:+923198398494">+92 319 839 8494</a>
@@ -1621,36 +1661,35 @@
         <div>
           <section class="cv-section">
             <h3>Professional Summary</h3>
-            <p class="cv-summary">Full-stack developer with 2+ years of hands-on experience building responsive web applications and digital experiences. Currently freelancing on Fiverr and founder of Aevora Studio, delivering client-focused web solutions across the MERN stack and PHP/Laravel.</p>
+            <p class="cv-summary">Full-stack developer based in Karachi, Pakistan, with 2+ years of hands-on experience building responsive websites and web applications. Freelancing on Fiverr and founder of Aevora Studio, delivering business websites, landing pages, e-commerce experiences, and full-stack features across the MERN stack and PHP/Laravel.</p>
           </section>
 
           <section class="cv-section">
             <h3>Experience</h3>
             <div class="cv-item">
-              <div class="cv-item-title">Freelance Web Developer &amp; Founder, Aevora Studio</div>
-              <div class="cv-item-sub">Currently freelancing on Fiverr · 2+ years of hands-on development experience · Professional training at Aptech North Karachi</div>
+              <div class="cv-item-title">Freelance Web Developer · Founder, Aevora Studio</div>
+              <div class="cv-item-sub">Independent client work · Fiverr · 2+ years of hands-on experience</div>
               <ul class="cv-bullets">
-                <li>Built responsive business, e-commerce, and service websites.</li>
-                <li>Developed full-stack features, account flows, and database-backed applications.</li>
-                <li>Applied accessible UI patterns, responsive layouts, and reusable code.</li>
-                <li>Building Aevora Studio as a client-focused web development agency.</li>
+                <li>Design and build responsive business websites, landing pages, and e-commerce experiences.</li>
+                <li>Develop full-stack features, account flows, and database-backed web applications.</li>
+                <li>Deliver clean, user-focused interfaces and practical UI/UX across client projects.</li>
+                <li>Founded Aevora Studio to deliver client-focused digital experiences and web solutions.</li>
               </ul>
-              <div class="cv-project-list">
-                <div class="cv-project-entry"><span>Fiverr freelance profile</span><a href="https://www.fiverr.com/sellers/aaliyanamir921" target="_blank" rel="noopener noreferrer">View profile ↗</a></div>
-                <div class="cv-project-entry"><span>Aevora Studio agency portfolio</span><a href="https://dynamic-sorbet-84cb7a.netlify.app/" target="_blank" rel="noopener noreferrer">Visit studio ↗</a></div>
-              </div>
+              <div class="cv-item-sub">Professional web development training at Aptech North Karachi · 1 year completed</div>
             </div>
           </section>
 
           <section class="cv-section">
             <h3>Selected Projects</h3>
             <div class="cv-project-list">
-              <div class="cv-project-entry"><span>MarketLink · Local farm marketplace</span><a href="https://ubaidportfolio.infinityfree.me/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
-              <div class="cv-project-entry"><span>Fan Hub Plus · Movie discovery platform</span><a href="https://fan-hub-plus.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>MarketLink · Local produce marketplace</span><a href="https://ubaidportfolio.infinityfree.me/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Fan Hub Plus · TMDB-powered media discovery</span><a href="https://fan-hub-plus.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Golden Visa UAE · Residency services</span><a href="https://goldenvisa-psi.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
               <div class="cv-project-entry"><span>Pet Care · Veterinary services</span><a href="https://frontend-nine-indol-48.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
-              <div class="cv-project-entry"><span>Aurelia Atelier · Luxury storefront</span><a href="https://aurelia-atelia.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Aurelia Atelier · Luxury e-commerce</span><a href="https://aurelia-atelia.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
               <div class="cv-project-entry"><span>AI Prompt Hub · Prompt discovery</span><a href="https://aiprompthub.tech/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
               <div class="cv-project-entry"><span>Beauty of Beaches · Travel experience</span><a href="https://beauty-of-beaches-created-by-raza.netlify.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>Good For Wellness · WordPress website</span><a href="https://goodforwellness.com/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
             </div>
           </section>
         </div>
@@ -1660,17 +1699,34 @@
             <h3>Technical Skills</h3>
             <div class="cv-skills-list">
               <span class="cv-skill-pill">JavaScript</span>
-              <span class="cv-skill-pill">React</span>
-              <span class="cv-skill-pill">Node.js</span>
-              <span class="cv-skill-pill">Express</span>
-              <span class="cv-skill-pill">MongoDB</span>
               <span class="cv-skill-pill">HTML &amp; CSS</span>
+              <span class="cv-skill-pill">Bootstrap</span>
+              <span class="cv-skill-pill">React</span>
+              <span class="cv-skill-pill">Angular</span>
+              <span class="cv-skill-pill">Next.js</span>
+              <span class="cv-skill-pill">UI/UX</span>
+              <span class="cv-skill-pill">MERN Stack</span>
+              <span class="cv-skill-pill">Node.js</span>
+              <span class="cv-skill-pill">Express.js</span>
+              <span class="cv-skill-pill">REST APIs</span>
+              <span class="cv-skill-pill">MongoDB</span>
               <span class="cv-skill-pill">PHP</span>
               <span class="cv-skill-pill">Laravel</span>
               <span class="cv-skill-pill">MySQL</span>
-              <span class="cv-skill-pill">Bootstrap</span>
+              <span class="cv-skill-pill">SQL</span>
+              <span class="cv-skill-pill">C# / .NET</span>
+              <span class="cv-skill-pill">Python (Basic)</span>
+              <span class="cv-skill-pill">Azure</span>
               <span class="cv-skill-pill">WordPress</span>
-              <span class="cv-skill-pill">Responsive UI</span>
+              <span class="cv-skill-pill">Shopify</span>
+              <span class="cv-skill-pill">Responsive Design</span>
+              <span class="cv-skill-pill">Project Management</span>
+              <span class="cv-skill-pill">Problem Solving</span>
+              <span class="cv-skill-pill">Graphic Design</span>
+              <span class="cv-skill-pill">Video Editing</span>
+              <span class="cv-skill-pill">Digital Marketing</span>
+              <span class="cv-skill-pill">SEO (Basic)</span>
+              <span class="cv-skill-pill">MS Office</span>
             </div>
           </section>
 
@@ -1678,7 +1734,7 @@
             <h3>Education</h3>
             <div class="cv-item">
               <div class="cv-item-title">Aptech North Karachi</div>
-              <div class="cv-item-sub">ACCPI — 3-Year Diploma of Software Engineering · In progress</div>
+              <div class="cv-item-sub">ACCPI · 3-Year Diploma of Software Engineering · In progress</div>
             </div>
             <div class="cv-item">
               <div class="cv-item-title">Murad Memon Degree College</div>
@@ -1686,7 +1742,7 @@
             </div>
             <div class="cv-item">
               <div class="cv-item-title">Little Genius Grammar School</div>
-              <div class="cv-item-sub">Matriculation · Science</div>
+              <div class="cv-item-sub">Matriculation · Science Group · Completed</div>
             </div>
           </section>
 
