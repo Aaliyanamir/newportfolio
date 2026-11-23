@@ -435,16 +435,24 @@
 
   .marketlink-project { order: -10; }
   .fan-hub-project { order: -9; }
-  .pet-care-project { order: -8; }
-  .golden-visa-project { order: -7; }
-  .aurelia-atelier-project { order: -6; }
-  .ai-prompthub-project { order: -5; }
-  .beauty-of-beaches-project { order: -4; }
-  .good-for-wellness-project { order: -3; }
-  .pawcare-project { order: -2; }
-  .burger-shop-project { order: -1; }
+  .aurelux-project { order: -8; }
+  .pet-care-project { order: -7; }
+  .golden-visa-project { order: -6; }
+  .aurelia-atelier-project { order: -5; }
+  .ai-prompthub-project { order: -4; }
+  .beauty-of-beaches-project { order: -3; }
+  .good-for-wellness-project { order: -2; }
+  .pawcare-project { order: -1; }
+  .burger-shop-project { order: 0; }
   .fan-hub-project .project-media { background: radial-gradient(ellipse at center, rgba(163, 216, 29, 0.12), #08090a 70%); }
   .fan-hub-project .project-image { object-fit: contain; padding: 3rem; }
+  .aurelux-project .project-media {
+    background: radial-gradient(circle at 65% 45%, rgba(198, 161, 93, 0.16), #09090b 68%);
+  }
+  .aurelux-project .project-image {
+    object-position: center;
+    filter: saturate(.82) contrast(1.12) brightness(.82);
+  }
 
   .project-card {
     display: grid; grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
@@ -1087,6 +1095,34 @@
         </div>
       </div>
 
+      <div class="project-card reveal aurelux-project featured-project">
+        <div class="project-media">
+          <img class="project-image" src="assets/images/aurelux.webp" alt="AURELUX luxury watch collection preview">
+          <span class="project-badge">Luxury Watch Experience</span>
+        </div>
+        <div class="project-content">
+          <div class="project-title">AURELUX — Luxury Watch Experience</div>
+          <div class="project-desc">
+            A premium Swiss-inspired luxury watch experience featuring detailed timepiece storytelling, immersive 3D exploration, a refined collection, and a polished appointment journey.
+          </div>
+          <dl class="project-details">
+            <div><dt>Role</dt><dd>Luxury storefront UI design and front-end development</dd></div>
+            <div><dt>Highlights</dt><dd>Interactive 3D watch presentation, collection browsing, luxury visual storytelling, appointment calls to action</dd></div>
+          </dl>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">WebGL / 3D</span>
+            <span class="tech-tag">Responsive UI</span>
+          </div>
+          <div class="project-links">
+            <a href="https://watchstore-nine.vercel.app/" class="project-link live" target="_blank" rel="noopener noreferrer">View Live</a>
+            <a href="https://watchstore-nine.vercel.app/" class="project-link" target="_blank" rel="noopener noreferrer">Open Site</a>
+          </div>
+        </div>
+      </div>
+
       <div class="project-card reveal">
         <div class="project-media">
           <img class="project-image" src="assets/images/e.png" alt="Tech Olympic 2026 preview">
@@ -1684,6 +1720,7 @@
             <div class="cv-project-list">
               <div class="cv-project-entry"><span>MarketLink · Local produce marketplace</span><a href="https://ubaidportfolio.infinityfree.me/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
               <div class="cv-project-entry"><span>Fan Hub Plus · TMDB-powered media discovery</span><a href="https://fan-hub-plus.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
+              <div class="cv-project-entry"><span>AURELUX · Luxury watch experience</span><a href="https://watchstore-nine.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
               <div class="cv-project-entry"><span>Golden Visa UAE · Residency services</span><a href="https://goldenvisa-psi.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
               <div class="cv-project-entry"><span>Pet Care · Veterinary services</span><a href="https://frontend-nine-indol-48.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>
               <div class="cv-project-entry"><span>Aurelia Atelier · Luxury e-commerce</span><a href="https://aurelia-atelia.vercel.app/" target="_blank" rel="noopener noreferrer">Live site ↗</a></div>

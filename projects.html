@@ -32,14 +32,17 @@
     .projects-grid { display: flex; flex-direction: column; gap: 1.4rem; }
     .marketlink-project { order: -10; }
     .fan-hub-project { order: -9; }
-    .pet-care-project { order: -8; }
-    .golden-visa-project { order: -7; }
-    .aurelia-atelier-project { order: -6; }
-    .ai-prompthub-project { order: -5; }
-    .beauty-of-beaches-project { order: -4; }
-    .good-for-wellness-project { order: -3; }
-    .pawcare-project { order: -2; }
-    .burger-shop-project { order: -1; }
+    .aurelux-project { order: -8; }
+    .aurelux-project .project-media { background: radial-gradient(circle at 65% 45%, rgba(198,161,93,.16), #09090b 68%); }
+    .aurelux-project .project-image { filter: saturate(.82) contrast(1.12) brightness(.82); }
+    .pet-care-project { order: -7; }
+    .golden-visa-project { order: -6; }
+    .aurelia-atelier-project { order: -5; }
+    .ai-prompthub-project { order: -4; }
+    .beauty-of-beaches-project { order: -3; }
+    .good-for-wellness-project { order: -2; }
+    .pawcare-project { order: -1; }
+    .burger-shop-project { order: 0; }
     .project-card { display: grid; grid-template-columns: minmax(260px, .9fr) minmax(0, 1.1fr); min-height: 280px; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--surface); }
     .project-card:nth-child(even) { grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr); }
     .project-card:nth-child(even) .project-media { order: 2; }
